@@ -61,5 +61,11 @@ namespace vuln_netframework.Controllers
         {
             _insecureDeserialization.SoapFormatterDeserialization(json);
         }
+
+        [Route("netdatacontractdeserialization")]
+        public void PostNetDataContractDeserialization([FromBody] string json)
+        {
+            _insecureDeserialization.NetDataContractDeserialization(json);
+        }
     }
 }

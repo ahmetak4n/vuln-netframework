@@ -6,6 +6,7 @@ using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Web.UI;
 using System.Runtime.Serialization.Formatters.Soap;
+using System.Runtime.Serialization;
 
 namespace DI.Services
 {
@@ -101,6 +102,26 @@ namespace DI.Services
 
                 SoapFormatter soapFormatter = new SoapFormatter();
                 object obj = soapFormatter.Deserialize(ms);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
+
+        /*
+         * Insecure NetDataContractSerializer usage
+         * https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.netdatacontractserializer.deserialize?view=netframework-4.8#remarks
+         */
+        public void NetDataContractDeserialization(string json)
+        {
+            try
+            {
+                MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(json));
+
+                NetDataContractSerializer netDataContractSerializer = new NetDataContractSerializer();
+                object obj = netDataContractSerializer.Deserialize(ms);
+                Console.WriteLine(obj);
             }
             catch (Exception e)
             {

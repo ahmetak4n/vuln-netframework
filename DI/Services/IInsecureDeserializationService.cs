@@ -6,7 +6,7 @@
         void DataContractJsonDeserialization(string type, string json);
         void BinaryFormatterDeserialization(string json);
         void LosFormatterDeserialization(string json);
-
         void SoapFormatterDeserialization(string json);
+        void NetDataContractDeserialization(string json);
     }
 }
