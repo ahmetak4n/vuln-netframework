@@ -21,6 +21,9 @@ namespace vuln_netframework
                 defaults: new { id = RouteParameter.Optional }
             );
 
+            /*
+             * https://www.newtonsoft.com/json/help/html/P_Newtonsoft_Json_JsonSerializer_TypeNameHandling.htm
+             */
             config.Formatters.JsonFormatter.SerializerSettings = new JsonSerializerSettings
             {
                 TypeNameHandling = TypeNameHandling.All

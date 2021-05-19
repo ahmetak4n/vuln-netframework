@@ -3,9 +3,9 @@ using System.IO;
 using Newtonsoft.Json;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization.Json;
-using System.Security.Principal;
 using System.Text;
-using System.Runtime.Serialization;
+using System.Web.UI;
+using System.Runtime.Serialization.Formatters.Soap;
 
 namespace DI.Services
 {
@@ -29,25 +29,6 @@ namespace DI.Services
         }
 
         /*
-         * Insecure BinaryFormatter usage
-         * https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.formatters.binary.binaryformatter?view=net-5.0#remarks
-         */
-        public void BinaryFormatterDeserialization (string json)
-        {
-            BinaryFormatter binaryFormatter = new BinaryFormatter();
-
-            try
-            {
-                MemoryStream memoryStream = new MemoryStream(Convert.FromBase64String(json));
-                binaryFormatter.Deserialize(memoryStream);
-                memoryStream.Close();
-            } catch (Exception e)
-            {
-                Console.WriteLine(e);
-            }
-        }
-
-        /*
          * Insecure DataContractJsonSerializer Deserialize usage
          */
         public void DataContractJsonDeserialization(string type, string json)
@@ -64,6 +45,62 @@ namespace DI.Services
                 MemoryStream memoryStream = new MemoryStream(Encoding.UTF8.GetBytes(json));
                 dataContractJsonSerializer.ReadObject(memoryStream);
                 memoryStream.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
+
+        /*
+         * Insecure BinaryFormatter usage
+         * https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.formatters.binary.binaryformatter?view=net-5.0#remarks
+         */
+        public void BinaryFormatterDeserialization(string json)
+        {
+            BinaryFormatter binaryFormatter = new BinaryFormatter();
+
+            try
+            {
+                MemoryStream memoryStream = new MemoryStream(Convert.FromBase64String(json));
+                binaryFormatter.Deserialize(memoryStream);
+                memoryStream.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
+
+        /*
+         * Insecure LosFormatter usage
+         * https://docs.microsoft.com/en-us/dotnet/api/system.web.ui.losformatter.deserialize?view=netframework-4.8#remarks
+         */
+        public void LosFormatterDeserialization(string json)
+        {
+            try
+            {
+                LosFormatter losFormatter = new LosFormatter();
+                object obj = losFormatter.Deserialize(json);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
+
+        /*
+         * Insecure SoapFormatter usage
+         * https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.formatters.soap.soapformatter.deserialize?view=netframework-4.8#remarks
+         */
+        public void SoapFormatterDeserialization(string json)
+        {
+            try
+            {
+                MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(json));
+
+                SoapFormatter soapFormatter = new SoapFormatter();
+                object obj = soapFormatter.Deserialize(ms);
             }
             catch (Exception e)
             {

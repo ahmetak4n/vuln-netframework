@@ -38,16 +38,28 @@ namespace vuln_netframework.Controllers
             return "Object Binded";
         }
 
+        [Route("datacontractjsondeserialization")]
+        public void PostDataContractJsonDeserialization([FromBody] DataContractInsecureDeserializationModel obj)
+        {
+            _insecureDeserialization.DataContractJsonDeserialization(obj.T, obj.Model);
+        }
+
         [Route("binaryformatter")]
         public void PostBinaryDeserialization([FromBody] string json)
         {
             _insecureDeserialization.BinaryFormatterDeserialization(json);
         }
 
-        [Route("datacontractjsondeserialization")]
-        public void PostDataContractJsonDeserialization([FromBody] DataContractInsecureDeserializationModel obj)
+        [Route("losformatterdeserialization")]
+        public void PostLosFormatterDeserialization([FromBody] string json)
         {
-            _insecureDeserialization.DataContractJsonDeserialization(obj.T, obj.Model);
+            _insecureDeserialization.LosFormatterDeserialization(json);
+        }
+
+        [Route("soapformatterdeserialization")]
+        public void PostSoapFormatterDeserialization([FromBody] string json)
+        {
+            _insecureDeserialization.SoapFormatterDeserialization(json);
         }
     }
 }
