@@ -73,5 +73,11 @@ namespace vuln_netframework.Controllers
         {
             _insecureDeserialization.NetDataContractDeserialization(json);
         }
+
+        [Route("fspickler")]
+        public void PostFsPicklerDeserialization([FromBody] string json)
+        {
+            _insecureDeserialization.FsPicklerDeserialization(json);
+        }
     }
 }

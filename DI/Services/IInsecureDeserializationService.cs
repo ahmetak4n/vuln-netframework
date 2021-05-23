@@ -9,5 +9,6 @@
         void LosFormatterDeserialization(string json);
         void SoapFormatterDeserialization(string json);
         void NetDataContractDeserialization(string json);
+        void FsPicklerDeserialization(string json);
     }
 }

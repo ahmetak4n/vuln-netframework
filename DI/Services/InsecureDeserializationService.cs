@@ -8,6 +8,7 @@ using System.Web.UI;
 using System.Runtime.Serialization.Formatters.Soap;
 using System.Runtime.Serialization;
 using fastJSON;
+using MBrace.FsPickler.Json;
 
 namespace DI.Services
 {
@@ -138,6 +139,23 @@ namespace DI.Services
                 NetDataContractSerializer netDataContractSerializer = new NetDataContractSerializer();
                 object obj = netDataContractSerializer.Deserialize(ms);
                 Console.WriteLine(obj);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
+
+        /*
+         * Insecure FsPickler Deserialize usage
+         */
+        public void FsPicklerDeserialization(string json)
+        {
+            try
+            {
+                var fsPickler = FsPickler.CreateJsonSerializer();
+                MemoryStream memoryStream = new MemoryStream(Convert.FromBase64String(json));
+                fsPickler.Deserialize<object>(memoryStream);
             }
             catch (Exception e)
             {
