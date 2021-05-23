@@ -7,7 +7,7 @@ namespace vuln_netframework.Controllers
     [RoutePrefix("api/insecuredeserialization")]
     public class InsecureDeserializationController : ApiController
     {
-        private IInsecureDeserializationService _insecureDeserialization;
+        private readonly IInsecureDeserializationService _insecureDeserialization;
 
         public InsecureDeserializationController(IInsecureDeserializationService insecureDeserialization)
         {
@@ -36,6 +36,12 @@ namespace vuln_netframework.Controllers
         public string PostObjectBinding([FromBody] NewtonsoftInsecureDeserializationModel model)
         {
             return "Object Binded";
+        }
+
+        [Route("fastjson")]
+        public void PostFastJSONDeserialization([FromBody] string json)
+        {
+            _insecureDeserialization.FastJSONDeserialization(json);
         }
 
         [Route("datacontractjsondeserialization")]

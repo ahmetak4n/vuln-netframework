@@ -7,6 +7,7 @@ using System.Text;
 using System.Web.UI;
 using System.Runtime.Serialization.Formatters.Soap;
 using System.Runtime.Serialization;
+using fastJSON;
 
 namespace DI.Services
 {
@@ -24,6 +25,21 @@ namespace DI.Services
                     TypeNameHandling = TypeNameHandling.All
                 });
             } catch(Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
+
+        /*
+         * Insecure FastJSON Deserialize usage
+         */
+        public void FastJSONDeserialization(string json)
+        {
+            try
+            {
+                var obj = JSON.ToObject(json, new JSONParameters { BadListTypeChecking = false });
+            }
+            catch (Exception e)
             {
                 Console.WriteLine(e);
             }
