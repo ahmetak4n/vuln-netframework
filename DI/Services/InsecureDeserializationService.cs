@@ -9,6 +9,7 @@ using System.Runtime.Serialization.Formatters.Soap;
 using System.Runtime.Serialization;
 using fastJSON;
 using MBrace.FsPickler.Json;
+using System.Web.Script.Serialization;
 
 namespace DI.Services
 {
@@ -71,15 +72,31 @@ namespace DI.Services
         }
 
         /*
+         * Insecure JavascriptSerializer Deserialize usage
+         */
+        public void JavascriptSerializerDeserialization(string json)
+        {
+            try
+            {
+                var serializer = new JavaScriptSerializer(new SimpleTypeResolver());
+                serializer.DeserializeObject(json);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
+
+        /*
          * Insecure BinaryFormatter usage
          * https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.formatters.binary.binaryformatter?view=net-5.0#remarks
          */
         public void BinaryFormatterDeserialization(string json)
         {
-            BinaryFormatter binaryFormatter = new BinaryFormatter();
-
             try
             {
+                BinaryFormatter binaryFormatter = new BinaryFormatter();
+
                 MemoryStream memoryStream = new MemoryStream(Convert.FromBase64String(json));
                 binaryFormatter.Deserialize(memoryStream);
                 memoryStream.Close();

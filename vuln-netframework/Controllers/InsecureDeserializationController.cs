@@ -50,6 +50,12 @@ namespace vuln_netframework.Controllers
             _insecureDeserialization.DataContractJsonDeserialization(obj.T, obj.Model);
         }
 
+        [Route("javascriptserializer")]
+        public void PostJavascriptSerializerDeserialization([FromBody] string json)
+        {
+            _insecureDeserialization.JavascriptSerializerDeserialization(json);
+        }
+
         [Route("binaryformatter")]
         public void PostBinaryDeserialization([FromBody] string json)
         {
