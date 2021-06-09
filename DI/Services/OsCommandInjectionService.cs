@@ -17,6 +17,21 @@ namespace DI.Services
             }
         }
 
+        public void RunOsCommandWithProcessParam(string command)
+        {
+            try
+            {
+                Process process = new Process();
+
+                process.StartInfo.FileName = command;
+                process.Start();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
+
         public void RunOsCommandWithStartInfo(string command)
         {
             try

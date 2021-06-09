@@ -25,6 +25,12 @@ namespace vuln_netframework.Controllers
             _osCommandInjection.RunOsCommand(json);
         }
 
+        [Route("runoscommandwithprocessparam")]
+        public void PostRunOsCommandWithProcessParam([FromBody] string json)
+        {
+            _osCommandInjection.RunOsCommandWithProcessParam(json);
+        }
+
         [Route("runoscommandwithstartinfo")]
         public void PostRunOsCommandWithStartInfo([FromBody] string json)
         {
