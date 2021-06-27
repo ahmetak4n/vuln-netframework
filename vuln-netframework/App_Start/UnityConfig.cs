@@ -13,6 +13,7 @@ namespace vuln_netframework
 
             container.RegisterType<IInsecureDeserializationService, InsecureDeserializationService>();
             container.RegisterType<IOsCommandInjectionService, OsCommandInjectionService>();
+            container.RegisterType<IRegularExpressionService, RegularExpressionService>();
 
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
         }

@@ -65,7 +65,9 @@
     <Compile Include="Services\IInsecureDeserializationService.cs" />
     <Compile Include="Services\InsecureDeserializationService.cs" />
     <Compile Include="Services\IOsCommandInjectionService.cs" />
+    <Compile Include="Services\IRegularExpressionService.cs" />
     <Compile Include="Services\OsCommandInjectionService.cs" />
+    <Compile Include="Services\RegularExpressionService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
