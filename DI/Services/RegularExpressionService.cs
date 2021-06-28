@@ -9,7 +9,7 @@ namespace DI.Services
 {
     public class RegularExpressionService : IRegularExpressionService
     {
-        public string Validate(string search)
+        public string SearchOne(string search)
         {
             var pattern = @"^A(B|C+)+D";
             var result = Regex.Match(search, pattern);
@@ -17,7 +17,7 @@ namespace DI.Services
             return result.Value;
         }
 
-        public string Check(string search)
+        public string SearchTwo(string search)
         {
             Regex rgx = new Regex("^A(B|C+)+D");
             var result = rgx.Match(search);

@@ -2,6 +2,8 @@
 {
     public interface IRegularExpressionService
     {
-        string Validate(string search);
+        string SearchOne(string search);
+
+        string SearchTwo(string search);
     }
 }

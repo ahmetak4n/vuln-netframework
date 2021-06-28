@@ -19,11 +19,16 @@ namespace vuln_netframework.Controllers
             return "Welcome Regular Expression Page";
         }
 
-        [Route("validate")]
-        public string PostValidate([FromBody] string search)
+        [Route("searchone")]
+        public string PostSearchOne([FromBody] string search)
         {
-            return _regularExpressionService.Validate(search);
+            return _regularExpressionService.SearchOne(search);
         }
 
+        [Route("searchtwo")]
+        public string PostSearchTwo([FromBody] string search)
+        {
+            return _regularExpressionService.SearchTwo(search);
+        }
     }
 }
