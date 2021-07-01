@@ -48,6 +48,7 @@
     </Reference>
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
@@ -66,8 +67,10 @@
     <Compile Include="Services\InsecureDeserializationService.cs" />
     <Compile Include="Services\IOsCommandInjectionService.cs" />
     <Compile Include="Services\IRegularExpressionService.cs" />
+    <Compile Include="Services\ISqlInjectionService.cs" />
     <Compile Include="Services\OsCommandInjectionService.cs" />
     <Compile Include="Services\RegularExpressionService.cs" />
+    <Compile Include="Services\SqlInjectionService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
