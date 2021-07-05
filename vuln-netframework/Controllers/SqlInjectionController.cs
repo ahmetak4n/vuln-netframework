@@ -19,28 +19,76 @@ namespace vuln_netframework.Controllers
             return "Welcome SQL Injection Page";
         }
 
-        [Route("classic")]
-        public string PostClassic([FromBody] string param)
+        [Route("classic/unionbased")]
+        public string PostUnionBased([FromBody] string param)
         {
-            return _sqlInjectionService.Classic(param);
+            return _sqlInjectionService.UnionBased(param);
         }
 
-        [Route("classicwithformatstring")]
-        public string PostClassicWithFormatString([FromBody] string param)
+        [Route("classic/unionbasedwithformatstring")]
+        public string PostUnionBasedWithFormatString([FromBody] string param)
         {
-            return _sqlInjectionService.ClassicWithFormatString(param);
+            return _sqlInjectionService.UnionBasedWithFormatString(param);
         }
 
-        [Route("blind")]
-        public string PostBlind([FromBody] string param)
+        [Route("classic/unionbasedsqldataadapter")]
+        public string PostUnionBasedSqlDataAdapter([FromBody] string param)
         {
-            return _sqlInjectionService.Blind(param);
+            return _sqlInjectionService.UnionBasedSqlDataAdapter(param);
         }
 
-        [Route("blindsecond")]
-        public void PostBlindSecond([FromBody] string param)
+        [Route("classic/errorbased")]
+        public void PostErrorBased([FromBody] string param)
         {
-            _sqlInjectionService.BlindSecond(param);
+            _sqlInjectionService.ErrorBased(param);
+        }
+
+        [Route("classic/errorbasedwithformatstring")]
+        public void PostErrorBasedWithFormatString([FromBody] string param)
+        {
+            _sqlInjectionService.ErrorBasedWithFormatString(param);
+        }
+
+        [Route("classic/errorbasedsqldataadapter")]
+        public void PostErrorBasedSqlDataAdapter([FromBody] string param)
+        {
+            _sqlInjectionService.ErrorBasedSqlDataAdapter(param);
+        }
+
+        [Route("blind/booleanbased")]
+        public string PostBooleanBased([FromBody] string param)
+        {
+            return _sqlInjectionService.BooleanBased(param);
+        }
+
+        [Route("blind/booleanbasedwithformatstring")]
+        public string PostBooleanBasedWithFormatString([FromBody] string param)
+        {
+            return _sqlInjectionService.BooleanBasedWithFormatString(param);
+        }
+
+        [Route("blind/booleanbasedsqldataadapter")]
+        public string PostBooleanBasedSqlDataAdapter([FromBody] string param)
+        {
+            return _sqlInjectionService.BooleanBasedSqlDataAdapter(param);
+        }
+
+        [Route("blind/timebased")]
+        public void PostTimeBased([FromBody] string param)
+        {
+            _sqlInjectionService.TimeBased(param);
+        }
+
+        [Route("blind/timebasedwithformatstring")]
+        public void PostTimeBasedWithFormatString([FromBody] string param)
+        {
+            _sqlInjectionService.TimeBasedWithFormatString(param);
+        }
+
+        [Route("blind/timebasedsqldataadapter")]
+        public void PostTimeBasedSqlDataAdapter([FromBody] string param)
+        {
+            _sqlInjectionService.TimeBasedSqlDataAdapter(param);
         }
 
     }

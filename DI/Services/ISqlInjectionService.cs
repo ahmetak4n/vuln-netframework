@@ -2,12 +2,28 @@
 {
     public interface ISqlInjectionService
     {
-        string Classic(string param);
+        string UnionBased(string param);
 
-        string ClassicWithFormatString(string param);
+        string UnionBasedWithFormatString(string param);
 
-        string Blind(string param);
+        string UnionBasedSqlDataAdapter(string param);
 
-        void BlindSecond(string param);
+        void ErrorBased(string param);
+
+        void ErrorBasedWithFormatString(string param);
+
+        void ErrorBasedSqlDataAdapter(string param);
+
+        string BooleanBased(string param);
+
+        string BooleanBasedWithFormatString(string param);
+
+        string BooleanBasedSqlDataAdapter(string param);
+
+        void TimeBased(string param);
+
+        void TimeBasedWithFormatString(string param);
+
+        void TimeBasedSqlDataAdapter(string param);
     }
 }
