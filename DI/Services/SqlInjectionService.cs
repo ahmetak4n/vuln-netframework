@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+
 namespace DI.Services
 {
     public class SqlInjectionService : ISqlInjectionService
@@ -27,7 +28,7 @@ namespace DI.Services
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    result += String.Format("{0}", reader[0]);
+                    result += String.Format("{0} {1}", reader[0], reader[1]);
                 }
             }
 
@@ -48,7 +49,7 @@ namespace DI.Services
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    result += String.Format("{0}", reader[0]);
+                    result += String.Format("{0} {1}", reader[0], reader[1]);
                 }
             }
 

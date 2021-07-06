@@ -90,6 +90,5 @@ namespace vuln_netframework.Controllers
         {
             _sqlInjectionService.TimeBasedSqlDataAdapter(param);
         }
-
     }
 }
