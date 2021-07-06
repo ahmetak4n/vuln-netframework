@@ -5,4 +5,7 @@ vuln-netframework is a .net-framework 4.7 project that include worst coding prac
 - Insecure Deserialization (Friday the 13th JSON)
 - Injection
   - OS Command Injection
+  - SQL Injection
 - Regular Expression DOS
+- Request Forgery Attacks
+  - Server Side Request Forgery
