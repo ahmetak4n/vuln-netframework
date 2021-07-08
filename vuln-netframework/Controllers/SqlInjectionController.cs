@@ -1,24 +1,35 @@
 ﻿using DI.Services;
-using System.Web.Http;
+using System.Web.Mvc;
 
 namespace vuln_netframework.Controllers
 {
-    [RoutePrefix("api/sqlinjection")]
-    public class SqlInjectionController : ApiController
+    public class SqlInjectionController : Controller
     {
         private readonly ISqlInjectionService _sqlInjectionService;
+
+        public SqlInjectionController()
+        {
+            
+        }
 
         public SqlInjectionController(ISqlInjectionService sqlInjectionService)
         {
             _sqlInjectionService = sqlInjectionService;
         }
 
-        [Route("index")]
-        public string GetIndex()
+        [HttpGet]
+        public ActionResult Index()
         {
-            return "Welcome SQL Injection Page";
+            return View();
         }
 
+        [HttpGet]
+        public ActionResult UnionBased()
+        {
+            return View();
+        }
+
+        /*
         [Route("classic/unionbased")]
         public string PostUnionBased([FromBody] string param)
         {
@@ -90,5 +101,7 @@ namespace vuln_netframework.Controllers
         {
             _sqlInjectionService.TimeBasedSqlDataAdapter(param);
         }
+
+        */
     }
 }

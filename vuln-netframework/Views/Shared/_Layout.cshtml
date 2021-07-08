@@ -31,24 +31,35 @@
 
             <ul class="list-unstyled ps-0">
                 <li class="mb-1">
-                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#injection-collapse" aria-expanded="false">
                         Injections
                     </button>
-                    <div class="collapse" id="dashboard-collapse">
+                    <div class="collapse" id="injection-collapse">
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                            <li><a href="#" class="link-dark rounded">SQL Injection</a></li>
-                            <li><a href="#" class="link-dark rounded">OS Command Injecion</a></li>
+                            <li>@Html.ActionLink("SQL Injection", "Index", "SqlInjection", new { area = "" }, new { @class = "link-dark rounded" })</li>
+                            <li>@Html.ActionLink("Os Command Injection", "Index", "OsCommandInjection", new { area = "" }, new { @class = "link-dark rounded" })</li>
                         </ul>
                     </div>
                 </li>
                 <li class="mb-1">
-                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#request-forgery-collapse" aria-expanded="false">
                         Request Forgery Attacks
                     </button>
-                    <div class="collapse" id="orders-collapse">
+                    <div class="collapse" id="request-forgery-collapse">
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                            <li><a href="#" class="link-dark rounded">Cross-Site Reqeust Forgery</a></li>
-                            <li><a href="#" class="link-dark rounded">Server-Side Request Forgery</a></li>
+                            <li>@Html.ActionLink("Cross-Site Reqeust Forgery", "Index", "CrossSiteRequestForgery", new { area = "" }, new { @class = "link-dark rounded" })</li>
+                            <li>@Html.ActionLink("Server Side Reqeust Forgery", "Index", "ServerSideRequestForgery", new { area = "" }, new { @class = "link-dark rounded" })</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="mb-1">
+                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#general-web-vulnerabilities-collapse" aria-expanded="false">
+                        General Web Vulnerabilities
+                    </button>
+                    <div class="collapse" id="general-web-vulnerabilities-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            <li>@Html.ActionLink("Regular Expression DOS", "Index", "RegularExpression", new { area = "" }, new { @class = "link-dark rounded" })</li>
+                            <li>@Html.ActionLink("Insecure Deserialization", "Index", "InsecureDeserialization", new { area = "" }, new { @class = "link-dark rounded" })</li>
                         </ul>
                     </div>
                 </li>

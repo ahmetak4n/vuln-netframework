@@ -1,0 +1,24 @@
+﻿@model vuln_netframework.Models.SqlInjection.Search
+@{
+    ViewBag.Title = "UnionBased";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="p-5 mb-4 bg-light rounded-3">
+    <div class="offset-md-2 container-fluid py-3">
+        <p class="col-md-8 fs-4">The software constructs all or part of an SQL command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended SQL command when it is sent to a downstream component.</p>
+        <br />
+        <p class="col-md-8 fs-6">More resource about web security vulnerabilities:</p>
+        <ul class="col-md-8 list-group">
+            <li class="list-group-item list-group-item-danger"><a class="link-dark" href="https://cwe.mitre.org/data/definitions/89.html">CWE-89</a> </li>
+        </ul>
+    </div>
+</div>
+
+<div class="col-md-8 offset-md-2">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+    </div>
+</div>
+
