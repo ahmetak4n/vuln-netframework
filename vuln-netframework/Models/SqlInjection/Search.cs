@@ -2,6 +2,6 @@
 {
     public class Search
     {
-        public string Query { get; set; }
+        public string Username { get; set; }
     }
 }

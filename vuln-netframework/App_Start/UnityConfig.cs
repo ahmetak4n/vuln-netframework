@@ -1,7 +1,7 @@
-using System.Web.Http;
-using Unity;
-using Unity.WebApi;
 using DI.Services;
+using System.Web.Mvc;
+using Unity;
+using Unity.Mvc5;
 
 namespace vuln_netframework
 {
@@ -17,7 +17,7 @@ namespace vuln_netframework
             container.RegisterType<ISqlInjectionService, SqlInjectionService>();
             container.RegisterType<IServerSideRequestForgeryService, ServerSideRequestForgeryService>();
 
-            GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
+            DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }
 }

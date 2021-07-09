@@ -16,9 +16,12 @@
 </div>
 
 <div class="col-md-8 offset-md-2">
-    <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
-        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
-    </div>
+    @using (Html.BeginForm("UnionBased", "SqlInjection", FormMethod.Post))
+    {
+        <div class="input-group mb-3">
+            @Html.TextBoxFor(a => a.Username, new { placeholder = "search user", aria_label = "username", aria_describedby = "search-button", @class = "form-control" })
+            <button class="btn btn-outline-secondary" type="submit" id="search-button">Button</button>
+        </div>
+    }
 </div>
 

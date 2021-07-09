@@ -1,16 +1,12 @@
 ﻿using DI.Services;
 using System.Web.Mvc;
+using vuln_netframework.Models.SqlInjection;
 
 namespace vuln_netframework.Controllers
 {
     public class SqlInjectionController : Controller
     {
         private readonly ISqlInjectionService _sqlInjectionService;
-
-        public SqlInjectionController()
-        {
-            
-        }
 
         public SqlInjectionController(ISqlInjectionService sqlInjectionService)
         {
@@ -26,6 +22,13 @@ namespace vuln_netframework.Controllers
         [HttpGet]
         public ActionResult UnionBased()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult UnionBased(Search search)
+        {
+            _sqlInjectionService.UnionBased(search.Username);
             return View();
         }
 
