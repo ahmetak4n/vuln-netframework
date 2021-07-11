@@ -178,14 +178,14 @@ namespace vuln_netframework.Controllers
         [HttpPost]
         public ActionResult TimeBasedWithFormatString(Insert insert)
         {
-            _sqlInjectionService.TimeBasedWithFormatString(insert.ProductName);
+            ViewBag.Message = _sqlInjectionService.TimeBasedWithFormatString(insert.ProductName);
             return View("TimeBased");
         }
 
         [HttpPost]
         public ActionResult TimeBasedWithSqlDataAdapter(Insert insert)
         {
-            _sqlInjectionService.TimeBasedWithSqlDataAdapter(insert.ProductName);
+            ViewBag.Message = _sqlInjectionService.TimeBasedWithSqlDataAdapter(insert.ProductName);
             return View("TimeBased");
         }
 
