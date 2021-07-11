@@ -2,28 +2,44 @@
 {
     public interface ISqlInjectionService
     {
+        #region Union Based
+
         string UnionBased(string param);
 
         string UnionBasedWithFormatString(string param);
 
-        string UnionBasedSqlDataAdapter(string param);
+        string UnionBasedWithSqlDataAdapter(string param);
 
-        void ErrorBased(string param);
+        #endregion
 
-        void ErrorBasedWithFormatString(string param);
+        #region Error Based
 
-        void ErrorBasedSqlDataAdapter(string param);
+        string ErrorBased(string param);
+
+        string ErrorBasedWithFormatString(string param);
+
+        string ErrorBasedWithSqlDataAdapter(string param);
+
+        #endregion
+
+        #region Boolean Based
 
         string BooleanBased(string param);
 
         string BooleanBasedWithFormatString(string param);
 
-        string BooleanBasedSqlDataAdapter(string param);
+        string BooleanBasedWithSqlDataAdapter(string param);
 
-        void TimeBased(string param);
+        #endregion
 
-        void TimeBasedWithFormatString(string param);
+        #region Time Based
 
-        void TimeBasedSqlDataAdapter(string param);
+        string TimeBased(string param);
+
+        string TimeBasedWithFormatString(string param);
+
+        string TimeBasedWithSqlDataAdapter(string param);
+
+        #endregion
     }
 }

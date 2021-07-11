@@ -1,13 +1,14 @@
-﻿@model vuln_netframework.Models.SqlInjection.Search
+﻿
 @{
-    ViewBag.Title = "UnionBased";
+    ViewBag.Title = "BooleanBased";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="col-md-12 p-5 mb-4 bg-light rounded-3">
     <div class="offset-md-2 py-3">
-        <p class="col-md-8 fs-5">Union-based SQLi is an in-band SQL injection technique that leverages the UNION SQL operator to combine the results of two or more SELECT 
-            statements into a single result which is then returned as part of the HTTP response.
+        <p class="col-md-8 fs-5">
+            Boolean-based SQL Injection is an inferential SQL Injection technique that relies on sending an SQL query to the database which forces the application to return a different result 
+            depending on whether the query returns a TRUE or FALSE result.
         </p>
         <br />
         <p class="col-md-8 fs-6">More resource about web security vulnerabilities:</p>
@@ -25,11 +26,11 @@
 }
 
 <div class="col-md-8 offset-md-2">
-    <h4>Union Based</h4>
-    @using (Html.BeginForm("UnionBased", "SqlInjection", FormMethod.Post))
+    <h4>Boolean Based</h4>
+    @using (Html.BeginForm("BooleanBased", "SqlInjection", FormMethod.Post))
     {
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="search user" aria-label="search" aria-describedby="search-button" name="username" id="unionbased" />
+            <input type="text" class="form-control" placeholder="check user" aria-label="search" aria-describedby="search-button" name="username" id="booleanbased" />
             <button class="btn btn-outline-secondary" type="submit" id="search-button">Search User</button>
         </div>
     }
@@ -40,11 +41,11 @@
 <br />
 
 <div class="col-md-8 offset-md-2">
-    <h4>Union Based With Format String</h4>
-    @using (Html.BeginForm("UnionBasedWithFormatString", "SqlInjection", FormMethod.Post))
+    <h4>Boolean Based With Format String</h4>
+    @using (Html.BeginForm("BooleanBasedWithFormatString", "SqlInjection", FormMethod.Post))
     {
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="search user" aria-label="search2" aria-describedby="search-button2" name="username" id="unionbasedwithformatstring" />
+            <input type="text" class="form-control" placeholder="check user" aria-label="search2" aria-describedby="search-button2" name="username" id="booleanbasedwithformatstring" />
             <button class="btn btn-outline-secondary" type="submit" id="search-button2">Search User</button>
         </div>
     }
@@ -55,12 +56,13 @@
 <br />
 
 <div class="col-md-8 offset-md-2">
-    <h4>Union Based With Sql Data Adapter</h4>
-    @using (Html.BeginForm("UnionBasedWithSqlDataAdapter", "SqlInjection", FormMethod.Post))
+    <h4>Boolean Based With Sql Data Adapter</h4>
+    @using (Html.BeginForm("BooleanBasedWithSqlDataAdapter", "SqlInjection", FormMethod.Post))
     {
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="search user" aria-label="search3" aria-describedby="search-button3" name="username" id="unionbasedwithsqldataadapter" />
+            <input type="text" class="form-control" placeholder="search user" aria-label="search3" aria-describedby="search-button3" name="username" id="booleanbasedwithsqldataadapter" />
             <button class="btn btn-outline-secondary" type="submit" id="search-button3">Search User</button>
         </div>
     }
 </div>
+

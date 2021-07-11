@@ -19,92 +19,176 @@ namespace vuln_netframework.Controllers
             return View();
         }
 
+        #region Union Based
+
         [HttpGet]
         public ActionResult UnionBased()
         {
             return View();
         }
 
+        [HttpGet]
+        public ActionResult UnionBasedWithFormatString()
+        {
+            return View("UnionBased");
+        }
+
+        [HttpGet]
+        public ActionResult UnionBasedWithSqlDataAdapter()
+        {
+            return View("UnionBased");
+        }
+
         [HttpPost]
         public ActionResult UnionBased(Search search)
         {
-            _sqlInjectionService.UnionBased(search.Username);
+            ViewBag.Message = _sqlInjectionService.UnionBased(search.Username);
             return View();
         }
 
-        /*
-        [Route("classic/unionbased")]
-        public string PostUnionBased([FromBody] string param)
+        [HttpPost]
+        public ActionResult UnionBasedWithFormatString(Search search)
         {
-            return _sqlInjectionService.UnionBased(param);
+            ViewBag.Message = _sqlInjectionService.UnionBasedWithFormatString(search.Username);
+            return View("UnionBased");
         }
 
-        [Route("classic/unionbasedwithformatstring")]
-        public string PostUnionBasedWithFormatString([FromBody] string param)
+        [HttpPost]
+        public ActionResult UnionBasedWithSqlDataAdapter(Search search)
         {
-            return _sqlInjectionService.UnionBasedWithFormatString(param);
+            ViewBag.Message = _sqlInjectionService.UnionBasedWithSqlDataAdapter(search.Username);
+            return View("UnionBased");
         }
 
-        [Route("classic/unionbasedsqldataadapter")]
-        public string PostUnionBasedSqlDataAdapter([FromBody] string param)
+        #endregion
+
+        #region Error Based
+
+        [HttpGet]
+        public ActionResult ErrorBased()
         {
-            return _sqlInjectionService.UnionBasedSqlDataAdapter(param);
+            return View();
         }
 
-        [Route("classic/errorbased")]
-        public void PostErrorBased([FromBody] string param)
+        [HttpGet]
+        public ActionResult ErrorBasedWithFormatString()
         {
-            _sqlInjectionService.ErrorBased(param);
+            return View("ErrorBased");
         }
 
-        [Route("classic/errorbasedwithformatstring")]
-        public void PostErrorBasedWithFormatString([FromBody] string param)
+        [HttpGet]
+        public ActionResult ErrorBasedWithSqlDataAdapter()
         {
-            _sqlInjectionService.ErrorBasedWithFormatString(param);
+            return View("ErrorBased");
         }
 
-        [Route("classic/errorbasedsqldataadapter")]
-        public void PostErrorBasedSqlDataAdapter([FromBody] string param)
+        [HttpPost]
+        public ActionResult ErrorBased(Insert insert)
         {
-            _sqlInjectionService.ErrorBasedSqlDataAdapter(param);
+            ViewBag.Message = _sqlInjectionService.ErrorBased(insert.ProductName);
+            return View();
         }
 
-        [Route("blind/booleanbased")]
-        public string PostBooleanBased([FromBody] string param)
+        [HttpPost]
+        public ActionResult ErrorBasedWithFormatString(Insert insert)
         {
-            return _sqlInjectionService.BooleanBased(param);
+            ViewBag.Message = _sqlInjectionService.ErrorBasedWithFormatString(insert.ProductName);
+            return View("ErrorBased");
         }
 
-        [Route("blind/booleanbasedwithformatstring")]
-        public string PostBooleanBasedWithFormatString([FromBody] string param)
+        [HttpPost]
+        public ActionResult ErrorBasedWithSqlDataAdapter(Insert insert)
         {
-            return _sqlInjectionService.BooleanBasedWithFormatString(param);
+            ViewBag.Message = _sqlInjectionService.ErrorBasedWithSqlDataAdapter(insert.ProductName);
+            return View("ErrorBased");
         }
 
-        [Route("blind/booleanbasedsqldataadapter")]
-        public string PostBooleanBasedSqlDataAdapter([FromBody] string param)
+        #endregion
+
+        #region Boolean Based
+
+        [HttpGet]
+        public ActionResult BooleanBased()
         {
-            return _sqlInjectionService.BooleanBasedSqlDataAdapter(param);
+            return View();
         }
 
-        [Route("blind/timebased")]
-        public void PostTimeBased([FromBody] string param)
+        [HttpGet]
+        public ActionResult BooleanBasedWithFormatString()
         {
-            _sqlInjectionService.TimeBased(param);
+            return View("BooleanBased");
         }
 
-        [Route("blind/timebasedwithformatstring")]
-        public void PostTimeBasedWithFormatString([FromBody] string param)
+        [HttpGet]
+        public ActionResult BooleanBasedWithSqlDataAdapter()
         {
-            _sqlInjectionService.TimeBasedWithFormatString(param);
+            return View("BooleanBased");
         }
 
-        [Route("blind/timebasedsqldataadapter")]
-        public void PostTimeBasedSqlDataAdapter([FromBody] string param)
+        [HttpPost]
+        public ActionResult BooleanBased(Search search)
         {
-            _sqlInjectionService.TimeBasedSqlDataAdapter(param);
+            ViewBag.Message = _sqlInjectionService.BooleanBased(search.Username);
+            return View();
         }
 
-        */
+        [HttpPost]
+        public ActionResult BooleanBasedWithFormatString(Search search)
+        {
+            ViewBag.Message = _sqlInjectionService.BooleanBasedWithFormatString(search.Username);
+            return View("BooleanBased");
+        }
+
+        [HttpPost]
+        public ActionResult BooleanBasedWithSqlDataAdapter(Search search)
+        {
+            ViewBag.Message = _sqlInjectionService.BooleanBasedWithSqlDataAdapter(search.Username);
+            return View("BooleanBased");
+        }
+
+        #endregion
+
+        #region Time Based
+
+        [HttpGet]
+        public ActionResult TimeBased()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult TimeBasedWithFormatString()
+        {
+            return View("TimeBased");
+        }
+
+        [HttpGet]
+        public ActionResult TimeBasedWithSqlDataAdapter()
+        {
+            return View("TimeBased");
+        }
+
+        [HttpPost]
+        public ActionResult TimeBased(Insert insert)
+        {
+            ViewBag.Message = _sqlInjectionService.TimeBased(insert.ProductName);
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult TimeBasedWithFormatString(Insert insert)
+        {
+            _sqlInjectionService.TimeBasedWithFormatString(insert.ProductName);
+            return View("TimeBased");
+        }
+
+        [HttpPost]
+        public ActionResult TimeBasedWithSqlDataAdapter(Insert insert)
+        {
+            _sqlInjectionService.TimeBasedWithSqlDataAdapter(insert.ProductName);
+            return View("TimeBased");
+        }
+
+        #endregion
     }
 }

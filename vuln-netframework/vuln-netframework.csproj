@@ -486,6 +486,7 @@
     <Compile Include="Models\DataContractInsecureDeserializationModel.cs" />
     <Compile Include="Models\Login\LoginModel.cs" />
     <Compile Include="Models\NewtonsoftInsecureDeserializationModel.cs" />
+    <Compile Include="Models\SqlInjection\Insert.cs" />
     <Compile Include="Models\SqlInjection\Search.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -515,6 +516,9 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\SqlInjection\Index.cshtml" />
     <Content Include="Views\SqlInjection\UnionBased.cshtml" />
+    <Content Include="Views\SqlInjection\ErrorBased.cshtml" />
+    <Content Include="Views\SqlInjection\BooleanBased.cshtml" />
+    <Content Include="Views\SqlInjection\TimeBased.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DI\DI.csproj">

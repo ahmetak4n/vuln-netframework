@@ -14,22 +14,30 @@ namespace DI.Services
             return connectionString;
         }
 
+        #region Union Based
+
         public string UnionBased(string param)
         {
             string result = "";
             string query = "SELECT * from [dbo].[USER] WHERE NAME = '" + param + "';";
 
-            using (SqlConnection connection = new SqlConnection(
-               GetConnectionString()))
+            try
             {
-                connection.Open();
+                using (SqlConnection connection = new SqlConnection(
+                   GetConnectionString()))
+                    {
+                        connection.Open();
 
-                SqlCommand command = new SqlCommand(query, connection);
-                SqlDataReader reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    result += String.Format("{0} {1}", reader[0], reader[1]);
-                }
+                        SqlCommand command = new SqlCommand(query, connection);
+                        SqlDataReader reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            result += String.Format("Username: {0} Role: {1}", reader["NAME"], reader["ROLE"]);
+                        }
+                    }
+            } catch(Exception e)
+            {
+                result = e.Message;
             }
 
             return result;
@@ -40,23 +48,29 @@ namespace DI.Services
             string result = "";
             string query = String.Format("SELECT * from [dbo].[USER] WHERE NAME = '{0}';", param);
 
-            using (SqlConnection connection = new SqlConnection(
-               GetConnectionString()))
+            try
             {
-                connection.Open();
+                using (SqlConnection connection = new SqlConnection(
+                   GetConnectionString()))
+                    {
+                        connection.Open();
 
-                SqlCommand command = new SqlCommand(query, connection);
-                SqlDataReader reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    result += String.Format("{0} {1}", reader[0], reader[1]);
-                }
+                        SqlCommand command = new SqlCommand(query, connection);
+                        SqlDataReader reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            result += String.Format("Username: {0} Role: {1}", reader["NAME"], reader["ROLE"]);
+                        }
+                    }
+            } catch(Exception e)
+            {
+                result = e.Message;
             }
 
             return result;
         }
 
-        public string UnionBasedSqlDataAdapter(string param)
+        public string UnionBasedWithSqlDataAdapter(string param)
         {
             string result = "";
             string query = "SELECT * from [dbo].[USER] WHERE NAME = '" + param + "';";
@@ -71,69 +85,111 @@ namespace DI.Services
 
                 foreach (DataRow row in dt.Rows)
                 {
-                    result += row["Name"];
+                    result += String.Format("Username: {0} Role: {1}", row["NAME"], row["ROLE"]);
                 }
             }
             catch (Exception e)
             {
-                System.Diagnostics.Debug.WriteLine(e);
+                result = e.Message;
             }
 
             return result;
         }
 
-        public void ErrorBased(string param)
+        #endregion
+
+        #region Error Based
+
+        public string ErrorBased(string param)
         {
-            string query = "SELECT * from [dbo].[USER] WHERE NAME = '" + param + "';";
+            string result;
+            string query = "INSERT INTO [dbo].[PRODUCT] (NAME) VALUES ('" + param + "');";
 
-            using (SqlConnection connection = new SqlConnection(
-               GetConnectionString()))
+            try
             {
-                connection.Open();
+                using (SqlConnection connection = new SqlConnection(
+                   GetConnectionString()))
+                    {
+                        connection.Open();
 
-                SqlCommand command = new SqlCommand(query, connection);
-                SqlDataReader reader = command.ExecuteReader();
-                while (reader.Read())
+                        SqlCommand command = new SqlCommand(query, connection);
+                        SqlDataReader reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            System.Diagnostics.Debug.WriteLine(String.Format("{0}", reader[0]));
+                        }
+                    }
+
+                result = "User was added";
+
+            } catch (Exception e)
+            {
+                result = e.Message;
+            }
+
+            return result;
+        }
+
+        public string ErrorBasedWithFormatString(string param)
+        {
+            string result;
+            string query = String.Format("INSERT INTO [dbo].[PRODUCT] (NAME) VALUES ('{0}');", param);
+
+            try 
+            {
+                using (SqlConnection connection = new SqlConnection(
+                   GetConnectionString()))
+                    {
+                        connection.Open();
+
+                        SqlCommand command = new SqlCommand(query, connection);
+                        SqlDataReader reader = command.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            System.Diagnostics.Debug.WriteLine(String.Format("{0}", reader[0]));
+                        }
+                    }
+
+                result = "User was added";
+
+            } catch(Exception e)
+            {
+                result = e.Message;
+            }
+
+            return result;
+        }
+
+        public string ErrorBasedWithSqlDataAdapter(string param)
+        {
+            string result;
+            string query = "INSERT INTO [dbo].[PRODUCT] (NAME) VALUES ('" + param + "');";
+
+            try 
+            {
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(query, GetConnectionString());
+
+                DataTable dt = new DataTable();
+                dataAdapter.Fill(dt);
+
+                foreach (DataRow row in dt.Rows)
                 {
-                    System.Diagnostics.Debug.WriteLine(String.Format("{0}", reader[0]));
+                    System.Diagnostics.Debug.WriteLine(row["Name"]);
                 }
-            }
 
-        }
+                result = "User was added";
 
-        public void ErrorBasedWithFormatString(string param)
-        {
-            string query = String.Format("SELECT * from [dbo].[USER] WHERE NAME = '{0}';", param);
-
-            using (SqlConnection connection = new SqlConnection(
-               GetConnectionString()))
+            } catch (Exception e)
             {
-                connection.Open();
-
-                SqlCommand command = new SqlCommand(query, connection);
-                SqlDataReader reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    System.Diagnostics.Debug.WriteLine(String.Format("{0}", reader[0]));
-                }
+                result = e.Message;
             }
 
+            return result;
         }
 
-        public void ErrorBasedSqlDataAdapter(string param)
-        {
-            string query = "SELECT * from [dbo].[USER] WHERE NAME = '" + param + "';";
+        #endregion
 
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(query, GetConnectionString());
-
-            DataTable dt = new DataTable();
-            dataAdapter.Fill(dt);
-
-            foreach (DataRow row in dt.Rows)
-            {
-                System.Diagnostics.Debug.WriteLine(row["Name"]);
-            }
-        }
+        #region Boolean Based
 
         public string BooleanBased(string param)
         {
@@ -191,7 +247,7 @@ namespace DI.Services
             return result;
         }
 
-        public string BooleanBasedSqlDataAdapter(string param)
+        public string BooleanBasedWithSqlDataAdapter(string param)
         {
             string result = "not found";
             string query = "SELECT * from [dbo].[USER] WHERE NAME = '" + param + "';";
@@ -216,9 +272,13 @@ namespace DI.Services
             return result;
         }
 
-        public void TimeBased(string param)
+        #endregion
+
+        #region Time Based
+
+        public string TimeBased(string param)
         {
-            string query = "SELECT * from [dbo].[USER] WHERE NAME = '" + param + "';";
+            string query = "INSERT INTO [dbo].[PRODUCT] (NAME) VALUES ('" + param + "');";
 
             using (SqlConnection connection = new SqlConnection(
                GetConnectionString()))
@@ -239,11 +299,13 @@ namespace DI.Services
                     System.Diagnostics.Debug.WriteLine(e);
                 }
             }
+
+            return "done!";
         }
 
-        public void TimeBasedWithFormatString(string param)
+        public string TimeBasedWithFormatString(string param)
         {
-            string query = String.Format("SELECT * from [dbo].[USER] WHERE NAME = '{0}';", param);
+            string query = "INSERT INTO [dbo].[PRODUCT] (NAME) VALUES ('" + param + "');";
 
             using (SqlConnection connection = new SqlConnection(
                GetConnectionString()))
@@ -264,11 +326,13 @@ namespace DI.Services
                     System.Diagnostics.Debug.WriteLine(e);
                 }
             }
+
+            return "done!";
         }
 
-        public void TimeBasedSqlDataAdapter(string param)
+        public string TimeBasedWithSqlDataAdapter(string param)
         {
-            string query = "SELECT * from [dbo].[USER] WHERE NAME = '" + param + "';";
+            string query = "INSERT INTO [dbo].[PRODUCT] (NAME) VALUES ('" + param + "');";
 
             try
             {
@@ -286,6 +350,10 @@ namespace DI.Services
             {
                 System.Diagnostics.Debug.WriteLine(e);
             }
+
+            return "done!";
         }
+
+        #endregion
     }
 }

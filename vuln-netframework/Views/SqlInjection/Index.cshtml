@@ -4,9 +4,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="p-5 mb-4 bg-light rounded-3">
-    <div class="offset-md-2 container-fluid py-3">
-        <p class="col-md-8 fs-4">The software constructs all or part of an SQL command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended SQL command when it is sent to a downstream component.</p>
+<div class="col-md-12 p-5 mb-4 bg-light rounded-3">
+    <div class="offset-md-2 py-3">
+        <p class="col-md-8 fs-5">The software constructs all or part of an SQL command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended SQL command when it is sent to a downstream component.</p>
         <br />
         <p class="col-md-8 fs-6">More resource about web security vulnerabilities:</p>
         <ul class="col-md-8 list-group">
@@ -35,10 +35,12 @@
         </div>
         <div class="card-body">
             <p class="card-text">
-                Classic SQL Injection is the most common and easy-to-exploit of SQL Injection attacks.
-                Classic SQL Injection occurs when an attacker is able to use the same communication channel to both launch the attack and gather results
+                Inferential SQL Injection, unlike in-band SQLi, may take longer for an attacker to exploit, however, it is just as dangerous as any other form of SQL Injection.
+                In an inferential SQLi attack, no data is actually transferred via the web application and the attacker would not be able to see the result of an attack
+                in-band. Instead, an attacker is able to reconstruct the database structure by sending payloads, observing the web application’s response and the resulting behavior of the database server.
             </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            @Html.ActionLink("Boolean Based", "BooleanBased", "SqlInjection", new { area = "" }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Time Based", "TimeBased", "SqlInjection", new { area = "" }, new { @class = "btn btn-primary" })
         </div>
     </div>
     <div class="card">

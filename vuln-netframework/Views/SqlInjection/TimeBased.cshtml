@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "TimeBased";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-12 p-5 mb-4 bg-light rounded-3">
+    <div class="offset-md-2 py-3">
+        <p class="col-md-8 fs-5">
+            Time-based SQL Injection is an inferential SQL Injection technique that relies on sending an SQL query to the database which forces the database to wait for a specified 
+            amount of time (in seconds) before responding. The response time will indicate to the attacker whether the result of the query is TRUE or FALSE.
+        </p>
+        <br />
+        <p class="col-md-8 fs-6">More resource about web security vulnerabilities:</p>
+        <ul class="col-md-8 list-group">
+            <li class="list-group-item list-group-item-danger"><a class="link-dark" href="https://cwe.mitre.org/data/definitions/89.html">CWE-89</a> </li>
+        </ul>
+    </div>
+</div>
+
+@if (!String.IsNullOrEmpty(ViewBag.Message))
+{
+    <div class="alert alert-success col-md-8 offset-md-2" role="alert">
+        @ViewBag.Message
+    </div>
+}
+
+<div class="col-md-8 offset-md-2">
+    <h4>Time Based</h4>
+    @using (Html.BeginForm("TimeBased", "SqlInjection", FormMethod.Post))
+    {
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="add product" aria-label="add" aria-describedby="add-button" name="productName" id="timebased" />
+            <button class="btn btn-outline-secondary" type="submit" id="add-button">Add Product</button>
+        </div>
+    }
+</div>
+
+<br />
+<hr class="col-md-8 offset-md-2" />
+<br />
+
+<div class="col-md-8 offset-md-2">
+    <h4>Time Based With Format String</h4>
+    @using (Html.BeginForm("TimeBasedWithFormatString", "SqlInjection", FormMethod.Post))
+    {
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="add product" aria-label="add2" aria-describedby="add-button2" name="productName" id="timebasedwithformatstring" />
+            <button class="btn btn-outline-secondary" type="submit" id="add-button2">Add Product</button>
+        </div>
+    }
+</div>
+
+<br />
+<hr class="col-md-8 offset-md-2" />
+<br />
+
+<div class="col-md-8 offset-md-2">
+    <h4>Time Based With Sql Data Adapter</h4>
+    @using (Html.BeginForm("TimeBasedWithSqlDataAdapter", "SqlInjection", FormMethod.Post))
+    {
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="add product" aria-label="add3" aria-describedby="add-button3" name="productName" id="timebasedwithsqldataadapter" />
+            <button class="btn btn-outline-secondary" type="submit" id="add-button3">Add Product</button>
+        </div>
+    }
+</div>
+
+
