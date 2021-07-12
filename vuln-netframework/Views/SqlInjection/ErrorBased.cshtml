@@ -6,12 +6,9 @@
 
 <div class="col-md-12 p-5 mb-4 bg-light rounded-3">
     <div class="offset-md-2 py-3">
-        <p class="col-md-8 fs-5">The software constructs all or part of an SQL command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended SQL command when it is sent to a downstream component.</p>
-        <br />
-        <p class="col-md-8 fs-6">More resource about web security vulnerabilities:</p>
-        <ul class="col-md-8 list-group">
-            <li class="list-group-item list-group-item-danger"><a class="link-dark" href="https://cwe.mitre.org/data/definitions/89.html">CWE-89</a> </li>
-        </ul>
+        <p class="col-md-8 fs-5">
+            Error-based SQLi is an in-band SQL Injection technique that relies on error messages thrown by the database server to obtain information about the structure of the database.
+        </p>
     </div>
 </div>
 
@@ -28,7 +25,7 @@
     {
         <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="add product" aria-label="add" aria-describedby="add-button" name="productName" id="errorbased" />
-            <button class="btn btn-outline-secondary" type="submit" id="search-button">Add Product</button>
+            <button class="btn btn-outline-secondary" type="submit" id="add-button">Add Product</button>
         </div>
     }
 </div>
@@ -42,8 +39,8 @@
     @using (Html.BeginForm("ErrorBasedWithFormatString", "SqlInjection", FormMethod.Post))
     {
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="add product" aria-label="search2" aria-describedby="search-button2" name="productName" id="errorbasedwithformatstring" />
-            <button class="btn btn-outline-secondary" type="submit" id="search-button2">Add Product</button>
+            <input type="text" class="form-control" placeholder="add product" aria-label="add2" aria-describedby="add-button2" name="productName" id="errorbasedwithformatstring" />
+            <button class="btn btn-outline-secondary" type="submit" id="add-button2">Add Product</button>
         </div>
     }
 </div>
@@ -57,8 +54,8 @@
     @using (Html.BeginForm("ErrorBasedWithSqlDataAdapter", "SqlInjection", FormMethod.Post))
     {
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="add product" aria-label="search3" aria-describedby="search-button3" name="productName" id="errorbasedwithsqldataadapter" />
-            <button class="btn btn-outline-secondary" type="submit" id="search-button3">Add Product</button>
+            <input type="text" class="form-control" placeholder="add product" aria-label="add3" aria-describedby="add-button3" name="productName" id="errorbasedwithsqldataadapter" />
+            <button class="btn btn-outline-secondary" type="submit" id="add-button3">Add Product</button>
         </div>
     }
 </div>

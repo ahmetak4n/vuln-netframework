@@ -6,11 +6,16 @@
 
 <div class="col-md-12 p-5 mb-4 bg-light rounded-3">
     <div class="offset-md-2 py-3">
-        <p class="col-md-8 fs-5">The software constructs all or part of an SQL command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify the intended SQL command when it is sent to a downstream component.</p>
+        <p class="col-md-8 fs-5">
+            SQL injection is a web security vulnerability that allows an attacker to interfere with the queries that an application makes to its database. 
+            It generally allows an attacker to view data that they are not normally able to retrieve.
+        </p>
         <br />
-        <p class="col-md-8 fs-6">More resource about web security vulnerabilities:</p>
+        <p class="col-md-8 fs-6">More resource about SQL Injection vulnerabilities:</p>
         <ul class="col-md-8 list-group">
             <li class="list-group-item list-group-item-danger"><a class="link-dark" href="https://cwe.mitre.org/data/definitions/89.html">CWE-89</a> </li>
+            <li class="list-group-item list-group-item-danger"><a class="link-dark" href="https://www.acunetix.com/websitesecurity/sql-injection2/">Acunetix - SQL Injection</a> </li>
+            <li class="list-group-item list-group-item-danger"><a class="link-dark" href="https://portswigger.net/web-security/sql-injection">Web Security Academy - SQL Injection</a> </li>
         </ul>
     </div>
 </div>
@@ -23,7 +28,10 @@
         <div class="card-body">
             <p class="card-text">
                 Classic SQL Injection is the most common and easy-to-exploit of SQL Injection attacks.
-                Classic SQL Injection occurs when an attacker is able to use the same communication channel to both launch the attack and gather results
+                Classic SQL Injection occurs when an attacker is able to use the same communication channel to both launch the attack and gather results.
+            </p>
+            <p class="card-text">
+                The two most common types of Classic SQL Injection are Error-Based SQLi and Union-Based SQLi
             </p>
             @Html.ActionLink("Union Based", "UnionBased", "SqlInjection", new { area = "" }, new { @class = "btn btn-primary" })
             @Html.ActionLink("Error Based", "ErrorBased", "SqlInjection", new { area = "" }, new { @class = "btn btn-primary" })
@@ -35,9 +43,11 @@
         </div>
         <div class="card-body">
             <p class="card-text">
-                Inferential SQL Injection, unlike in-band SQLi, may take longer for an attacker to exploit, however, it is just as dangerous as any other form of SQL Injection.
-                In an inferential SQLi attack, no data is actually transferred via the web application and the attacker would not be able to see the result of an attack
+                A Blind SQLi attack, no data is actually transferred via the web application and the attacker would not be able to see the result of an attack
                 in-band. Instead, an attacker is able to reconstruct the database structure by sending payloads, observing the web application’s response and the resulting behavior of the database server.
+            </p>
+            <p class="card-text">
+                The two types of inferential SQL Injection are Blind-boolean-based SQLi and Blind-time-based SQLi.
             </p>
             @Html.ActionLink("Boolean Based", "BooleanBased", "SqlInjection", new { area = "" }, new { @class = "btn btn-primary" })
             @Html.ActionLink("Time Based", "TimeBased", "SqlInjection", new { area = "" }, new { @class = "btn btn-primary" })
@@ -49,10 +59,10 @@
         </div>
         <div class="card-body">
             <p class="card-text">
-                Classic SQL Injection is the most common and easy-to-exploit of SQL Injection attacks.
-                Classic SQL Injection occurs when an attacker is able to use the same communication channel to both launch the attack and gather results
+                Out-of-band SQL Injection occurs when an attacker is unable to use the same channel to launch the attack and gather results.
+                Out-of-band techniques, offer an attacker an alternative to inferential time-based techniques, especially if the server responses are not very stable.
             </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <a href="#" class="btn btn-primary">TODO</a>
         </div>
     </div>
 </div>

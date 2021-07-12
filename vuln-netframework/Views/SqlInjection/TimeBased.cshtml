@@ -7,14 +7,11 @@
 <div class="col-md-12 p-5 mb-4 bg-light rounded-3">
     <div class="offset-md-2 py-3">
         <p class="col-md-8 fs-5">
-            Time-based SQL Injection is an inferential SQL Injection technique that relies on sending an SQL query to the database which forces the database to wait for a specified 
-            amount of time (in seconds) before responding. The response time will indicate to the attacker whether the result of the query is TRUE or FALSE.
+            Time-based SQL Injection is an inferential SQL Injection technique that relies on sending an SQL query to the database which forces the database to wait for a specified
+            amount of time (in seconds) before responding. The response time will indicate to the attacker whether the result of the query is TRUE or FALSE. Depending on the result, 
+            an HTTP response will be returned with a delay, or returned immediately. This allows an attacker to infer if the payload used returned true or false, even though no data 
+            from the database is returned.
         </p>
-        <br />
-        <p class="col-md-8 fs-6">More resource about web security vulnerabilities:</p>
-        <ul class="col-md-8 list-group">
-            <li class="list-group-item list-group-item-danger"><a class="link-dark" href="https://cwe.mitre.org/data/definitions/89.html">CWE-89</a> </li>
-        </ul>
     </div>
 </div>
 

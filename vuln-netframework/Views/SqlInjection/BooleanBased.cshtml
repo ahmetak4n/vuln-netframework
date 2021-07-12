@@ -7,14 +7,10 @@
 <div class="col-md-12 p-5 mb-4 bg-light rounded-3">
     <div class="offset-md-2 py-3">
         <p class="col-md-8 fs-5">
-            Boolean-based SQL Injection is an inferential SQL Injection technique that relies on sending an SQL query to the database which forces the application to return a different result 
-            depending on whether the query returns a TRUE or FALSE result.
+            Boolean-based SQL Injection is an inferential SQL Injection technique that relies on sending an SQL query to the database which forces the application to return a different result
+            depending on whether the query returns a TRUE or FALSE result. Depending on the result, the content within the HTTP response will change, or remain the same. 
+            This allows an attacker to infer if the payload used returned true or false, even though no data from the database is returned.
         </p>
-        <br />
-        <p class="col-md-8 fs-6">More resource about web security vulnerabilities:</p>
-        <ul class="col-md-8 list-group">
-            <li class="list-group-item list-group-item-danger"><a class="link-dark" href="https://cwe.mitre.org/data/definitions/89.html">CWE-89</a> </li>
-        </ul>
     </div>
 </div>
 
@@ -31,7 +27,7 @@
     {
         <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="check user" aria-label="search" aria-describedby="search-button" name="username" id="booleanbased" />
-            <button class="btn btn-outline-secondary" type="submit" id="search-button">Search User</button>
+            <button class="btn btn-outline-secondary" type="submit" id="search-button">Check User</button>
         </div>
     }
 </div>
@@ -46,7 +42,7 @@
     {
         <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="check user" aria-label="search2" aria-describedby="search-button2" name="username" id="booleanbasedwithformatstring" />
-            <button class="btn btn-outline-secondary" type="submit" id="search-button2">Search User</button>
+            <button class="btn btn-outline-secondary" type="submit" id="search-button2">Check User</button>
         </div>
     }
 </div>
@@ -60,8 +56,8 @@
     @using (Html.BeginForm("BooleanBasedWithSqlDataAdapter", "SqlInjection", FormMethod.Post))
     {
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="search user" aria-label="search3" aria-describedby="search-button3" name="username" id="booleanbasedwithsqldataadapter" />
-            <button class="btn btn-outline-secondary" type="submit" id="search-button3">Search User</button>
+            <input type="text" class="form-control" placeholder="check user" aria-label="search3" aria-describedby="search-button3" name="username" id="booleanbasedwithsqldataadapter" />
+            <button class="btn btn-outline-secondary" type="submit" id="search-button3">Check User</button>
         </div>
     }
 </div>

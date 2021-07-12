@@ -5,67 +5,56 @@ namespace DI.Services
 {
     public class OsCommandInjectionService : IOsCommandInjectionService
     {
-        public void RunOsCommand(string command)
+        public string Classic(string ip)
         {
-            try 
-            {
-                var process = Process.Start(command);
-            } 
-            catch(Exception e)
-            {
-                Console.WriteLine(e);
-            }
-        }
+            string result = "";
 
-        public void RunOsCommandWithProcessParam(string command)
-        {
             try
             {
                 Process process = new Process();
 
-                process.StartInfo.FileName = command;
+                process.StartInfo.FileName = "cmd.exe";
+                process.StartInfo.Arguments = "/c ping " + ip;
+                process.StartInfo.UseShellExecute = false;
+                process.StartInfo.RedirectStandardOutput = true;
                 process.Start();
+
+                result = process.StandardOutput.ReadToEnd();
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
             }
+
+            return result;
         }
 
-        public void RunOsCommandWithStartInfo(string command)
+        public string Blind(string command)
         {
+            string result = "Host not found";
             try
             {
-                ProcessStartInfo processStartInfo = new ProcessStartInfo()
-                {
-                    FileName = command
-                };
+                Process process = new Process();
 
-                var process = Process.Start(processStartInfo);
+                process.StartInfo.FileName = "cmd.exe";
+                process.StartInfo.Arguments = "/c ping " + command;
+                process.StartInfo.UseShellExecute = false;
+                process.StartInfo.RedirectStandardOutput = true;
+                process.Start();
+
+                var console = process.StandardOutput.ReadToEnd();
+
+                if (!console.Contains("Ping request could not find"))
+                {
+                    result = "Host found";
+                }
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
             }
-        }
 
-        public void RunPythonWithArgs(string args)
-        {
-            try
-            {
-                ProcessStartInfo processStartInfo = new ProcessStartInfo()
-                {
-                    FileName = @"python.exe",
-                    Arguments = args,
-                    UseShellExecute = false
-                };
-
-                var process = Process.Start(processStartInfo);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-            }
+            return result;
         }
     }
 }

@@ -1,0 +1,34 @@
+﻿@model vuln_netframework.Models.OsCommandInjection.Ping
+@{
+    ViewBag.Title = "Blind";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-12 p-5 mb-4 bg-light rounded-3">
+    <div class="offset-md-2 py-3">
+        <p class="col-md-8 fs-5">
+            Blind OS Command Injection occurs when an attacker is not able to use the same communication channel to both launch the attack and gather results.
+            The results of the commands that you inject will not be displayed to the attacker and no error messages are returned. The attacker might use another technique
+            to identify whether the command was really executed on the server or not.
+        </p>
+    </div>
+</div>
+
+@if (!String.IsNullOrEmpty(ViewBag.Message))
+{
+    <div class="alert alert-success col-md-8 offset-md-2" role="alert">
+        @ViewBag.Message
+    </div>
+}
+
+<div class="col-md-8 offset-md-2">
+    <h4>Blind</h4>
+    @using (Html.BeginForm("Blind", "OsCommandInjection", FormMethod.Post))
+    {
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="IP address" aria-label="ping" aria-describedby="ping-button" name="ip" id="blind" />
+            <button class="btn btn-outline-secondary" type="submit" id="ping-button">Ping</button>
+        </div>
+    }
+</div>
+

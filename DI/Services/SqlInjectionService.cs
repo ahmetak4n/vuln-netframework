@@ -120,7 +120,7 @@ namespace DI.Services
                         }
                     }
 
-                result = "User was added";
+                result = "Product was added";
 
             } catch (Exception e)
             {
@@ -150,7 +150,7 @@ namespace DI.Services
                         }
                     }
 
-                result = "User was added";
+                result = "Product was added";
 
             } catch(Exception e)
             {
@@ -177,7 +177,7 @@ namespace DI.Services
                     System.Diagnostics.Debug.WriteLine(row["Name"]);
                 }
 
-                result = "User was added";
+                result = "Product was added";
 
             } catch (Exception e)
             {
@@ -300,7 +300,7 @@ namespace DI.Services
                 }
             }
 
-            return "done!";
+            return "Done!";
         }
 
         public string TimeBasedWithFormatString(string param)
@@ -327,7 +327,7 @@ namespace DI.Services
                 }
             }
 
-            return "done!";
+            return "Done!";
         }
 
         public string TimeBasedWithSqlDataAdapter(string param)
@@ -351,7 +351,7 @@ namespace DI.Services
                 System.Diagnostics.Debug.WriteLine(e);
             }
 
-            return "done!";
+            return "Done!";
         }
 
         #endregion

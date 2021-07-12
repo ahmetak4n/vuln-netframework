@@ -1,0 +1,32 @@
+﻿@model vuln_netframework.Models.OsCommandInjection.Ping
+@{
+    ViewBag.Title = "Classic";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-12 p-5 mb-4 bg-light rounded-3">
+    <div class="offset-md-2 py-3">
+        <p class="col-md-8 fs-5">
+            Classic OS Command Injection occurs when an attacker is able to use the same communication channel to both launch the attack and gather results.
+        </p>
+    </div>
+</div>
+
+@if (!String.IsNullOrEmpty(ViewBag.Message))
+{
+    <div class="alert alert-success col-md-8 offset-md-2" role="alert">
+        @ViewBag.Message
+    </div>
+}
+
+<div class="col-md-8 offset-md-2">
+    <h4>Classic</h4>
+    @using (Html.BeginForm("Classic", "OsCommandInjection", FormMethod.Post))
+    {
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="IP address" aria-label="ping" aria-describedby="ping-button" name="ip" id="classic" />
+            <button class="btn btn-outline-secondary" type="submit" id="ping-button">Ping</button>
+        </div>
+    }
+</div>
+

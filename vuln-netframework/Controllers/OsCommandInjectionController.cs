@@ -1,10 +1,10 @@
 ﻿using DI.Services;
-using System.Web.Http;
+using System.Web.Mvc;
+using vuln_netframework.Models.OsCommandInjection;
 
 namespace vuln_netframework.Controllers
 {
-    [RoutePrefix("api/oscommandinjection")]
-    public class OsCommandInjectionController : ApiController
+    public class OsCommandInjectionController : Controller
     {
         private readonly IOsCommandInjectionService _osCommandInjection;
 
@@ -13,34 +13,35 @@ namespace vuln_netframework.Controllers
             _osCommandInjection = osCommandInjection;
         }
 
-        [Route("index")]
-        public string GetIndex()
+        public ActionResult Index()
         {
-            return "Welcome Injection Page";
+            return View();
         }
 
-        [Route("runoscommand")]
-        public void PostRunOsCommand([FromBody] string json)
+        [HttpGet]
+        public ActionResult Classic()
         {
-            _osCommandInjection.RunOsCommand(json);
+            return View();
         }
 
-        [Route("runoscommandwithprocessparam")]
-        public void PostRunOsCommandWithProcessParam([FromBody] string json)
+        [HttpPost]
+        public ActionResult Classic(Ping ping)
         {
-            _osCommandInjection.RunOsCommandWithProcessParam(json);
+            ViewBag.Message = _osCommandInjection.Classic(ping.Ip);
+            return View();
         }
 
-        [Route("runoscommandwithstartinfo")]
-        public void PostRunOsCommandWithStartInfo([FromBody] string json)
+        [HttpGet]
+        public ActionResult Blind()
         {
-            _osCommandInjection.RunOsCommandWithStartInfo(json);
+            return View();
         }
 
-        [Route("runpythonwithargs")]
-        public void PostRunPythonWithArgs([FromBody] string args)
+        [HttpPost]
+        public ActionResult Blind(Ping ping)
         {
-            _osCommandInjection.RunPythonWithArgs(args);
+            ViewBag.Message = _osCommandInjection.Blind(ping.Ip);
+            return View();
         }
     }
 }
