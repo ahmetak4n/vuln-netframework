@@ -14,7 +14,6 @@
         <p class="col-md-8 fs-6">More resource about SQL Injection vulnerabilities:</p>
         <ul class="col-md-8 list-group">
             <li class="list-group-item list-group-item-danger"><a class="link-dark" href="https://cwe.mitre.org/data/definitions/89.html">CWE-89</a> </li>
-            <li class="list-group-item list-group-item-danger"><a class="link-dark" href="https://www.acunetix.com/websitesecurity/sql-injection2/">Acunetix - SQL Injection</a> </li>
             <li class="list-group-item list-group-item-danger"><a class="link-dark" href="https://portswigger.net/web-security/sql-injection">Web Security Academy - SQL Injection</a> </li>
         </ul>
     </div>
@@ -27,7 +26,6 @@
         </div>
         <div class="card-body">
             <p class="card-text">
-                Classic SQL Injection is the most common and easy-to-exploit of SQL Injection attacks.
                 Classic SQL Injection occurs when an attacker is able to use the same communication channel to both launch the attack and gather results.
             </p>
             <p class="card-text">
@@ -44,25 +42,16 @@
         <div class="card-body">
             <p class="card-text">
                 A Blind SQLi attack, no data is actually transferred via the web application and the attacker would not be able to see the result of an attack
-                in-band. Instead, an attacker is able to reconstruct the database structure by sending payloads, observing the web application’s response and the resulting behavior of the database server.
+                in-band. Instead, an attacker is able to reconstruct the database structure by sending payloads, observing the web application’s response and
+                the resulting behavior of the database server.
             </p>
             <p class="card-text">
-                The two types of inferential SQL Injection are Blind-boolean-based SQLi and Blind-time-based SQLi.
+                The two types of inferential SQL Injection are Blind-boolean-based SQLi and Blind-time-based SQLi. Also attackers can extract data from application
+                with Out-Of-Band Technique.
             </p>
             @Html.ActionLink("Boolean Based", "BooleanBased", "SqlInjection", new { area = "" }, new { @class = "btn btn-primary" })
             @Html.ActionLink("Time Based", "TimeBased", "SqlInjection", new { area = "" }, new { @class = "btn btn-primary" })
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-header">
-            Out-Of-Band
-        </div>
-        <div class="card-body">
-            <p class="card-text">
-                Out-of-band SQL Injection occurs when an attacker is unable to use the same channel to launch the attack and gather results.
-                Out-of-band techniques, offer an attacker an alternative to inferential time-based techniques, especially if the server responses are not very stable.
-            </p>
-            <a href="#" class="btn btn-primary">TODO</a>
+            @Html.ActionLink("Out-Of-Band", "OutOfBand", "SqlInjection", new { area = "" }, new { @class = "btn btn-primary" })
         </div>
     </div>
 </div>

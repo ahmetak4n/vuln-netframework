@@ -18,6 +18,8 @@ namespace vuln_netframework.Controllers
             return View();
         }
 
+        #region Classic
+
         [HttpGet]
         public ActionResult Classic()
         {
@@ -31,6 +33,10 @@ namespace vuln_netframework.Controllers
             return View();
         }
 
+        #endregion
+
+        #region Blind
+
         [HttpGet]
         public ActionResult Blind()
         {
@@ -43,5 +49,7 @@ namespace vuln_netframework.Controllers
             ViewBag.Message = _osCommandInjection.Blind(ping.Ip);
             return View();
         }
+
+        #endregion
     }
 }

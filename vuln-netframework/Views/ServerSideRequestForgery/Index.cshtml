@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-12 p-5 mb-4 bg-light rounded-3">
+    <div class="offset-md-2 py-3">
+        <p class="col-md-8 fs-5">
+            Server-side request forgery (also known as SSRF) is a web security vulnerability that allows an attacker to induce the server-side application to make 
+            HTTP requests to an arbitrary domain of the attacker's choosing.
+        </p>
+        <br />
+        <p class="col-md-8 fs-6">More resource about Server-Side Request Forgery vulnerabilities:</p>
+        <ul class="col-md-8 list-group">
+            <li class="list-group-item list-group-item-danger"><a class="link-dark" href="https://cwe.mitre.org/data/definitions/918.html">CWE-918</a> </li>
+            <li class="list-group-item list-group-item-danger"><a class="link-dark" href="https://portswigger.net/web-security/ssrf">Web Security Academy - SSRF</a> </li>
+        </ul>
+    </div>
+</div>
+
+<div class="p-4 card-group">
+    <div class="card">
+        <div class="card-header">
+            Classic (In-Band)
+        </div>
+        <div class="card-body">
+            <p class="card-text">
+                In a typical SSRF attack, the attacker might cause the server to make a connection to internal-only services within the organization's infrastructure. 
+                In other cases, they may be able to force the server to connect to arbitrary external systems, potentially leaking sensitive data such as authorization credentials.
+            </p>
+            @Html.ActionLink("Classic (In-Band)", "Classic", "ServerSideRequestForgery", new { area = "" }, new { @class = "btn btn-primary" })
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            Blind (Inferential)
+        </div>
+        <div class="card-body">
+            <p class="card-text">
+                Blind SSRF vulnerabilities arise when an application can be induced to issue a back-end HTTP request to a supplied URL, but the response from the back-end request is
+                not returned in the application's front-end response.
+            </p>
+            @Html.ActionLink("Blind (Inferential)", "Blind", "ServerSideRequestForgery", new { area = "" }, new { @class = "btn btn-primary" })
+        </div>
+    </div>
+</div>

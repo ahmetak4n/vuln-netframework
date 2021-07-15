@@ -1,0 +1,67 @@
+﻿@model vuln_netframework.Models.ServerSideRequestForgery.Request
+@{
+    ViewBag.Title = "Blind";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-12 p-5 mb-4 bg-light rounded-3">
+    <div class="offset-md-2 py-3">
+        <p class="col-md-8 fs-5">
+            Blind SSRF vulnerabilities arise when an application can be induced to issue a back-end HTTP request to a supplied URL, but the response from the back-end request is
+            not returned in the application's front-end response.
+        </p>
+    </div>
+</div>
+
+@if (!String.IsNullOrEmpty(ViewBag.Message))
+{
+    <div class="alert alert-success col-md-8 offset-md-2" role="alert">
+        @ViewBag.Message
+    </div>
+}
+
+<div class="col-md-8 offset-md-2 ">
+    <h4>Blind With HttpClient</h4>
+    @using (Html.BeginForm("BlindWithHttpClient", "ServerSideRequestForgery", FormMethod.Post))
+    {
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="enter your message" aria-label="message" aria-describedby="message-button" name="message" id="blindwithhttpclient" />
+            <input value="https://ahmetakan.com" type="hidden" class="form-control" aria-label="message" aria-describedby="message-button" name="path" id="blindwithhttpclient2" />
+            <button class="btn btn-outline-secondary" type="submit" id="message-button">Send Message</button>
+        </div>
+    }
+</div>
+
+<br />
+<hr />
+<br />
+
+<div class="col-md-8 offset-md-2 ">
+    <h4>Blind With WebClient</h4>
+    @using (Html.BeginForm("BlindWebClient", "ServerSideRequestForgery", FormMethod.Post))
+    {
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="enter your message" aria-label="message" aria-describedby="message-button" name="message" id="blindwithwebclient" />
+            <input value="https://ahmetakan.com" type="hidden" class="form-control" aria-label="message" aria-describedby="message-button2" name="path" id="blindwithwebclient2" />
+            <button class="btn btn-outline-secondary" type="submit" id="message-button2">Send Message</button>
+        </div>
+    }
+</div>
+
+<br />
+<hr />
+<br />
+
+<div class="col-md-8 offset-md-2 ">
+    <h4>Blind With RestClient</h4>
+    @using (Html.BeginForm("BlindRestClient", "ServerSideRequestForgery", FormMethod.Post))
+    {
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="enter your message" aria-label="message" aria-describedby="message-button" name="message" id="blindwithrestclient" />
+            <input value="https://ahmetakan.com" type="hidden" class="form-control" aria-label="message" aria-describedby="message-button3" name="path" id="blindwithrestclient2" />
+            <button class="btn btn-outline-secondary" type="submit" id="message-button3">Send Message</button>
+        </div>
+    }
+</div>
+
+

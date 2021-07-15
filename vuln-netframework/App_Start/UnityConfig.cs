@@ -17,6 +17,8 @@ namespace vuln_netframework
             container.RegisterType<ISqlInjectionService, SqlInjectionService>();
             container.RegisterType<IServerSideRequestForgeryService, ServerSideRequestForgeryService>();
 
+            container.RegisterType<IDummyService, DummyService>();
+
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }

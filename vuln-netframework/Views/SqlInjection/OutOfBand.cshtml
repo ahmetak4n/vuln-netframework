@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "OutOfBased";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-12 p-5 mb-4 bg-light rounded-3">
+    <div class="offset-md-2 py-3">
+        <p class="col-md-8 fs-5">
+            Out-of-band SQL Injection occurs when an attacker is unable to use the same channel to launch the attack and gather results.
+            Out-of-band techniques, offer an attacker an alternative to inferential time-based techniques, especially if the server responses are not very stable.
+        </p>
+    </div>
+</div>
+
+@if (!String.IsNullOrEmpty(ViewBag.Message))
+{
+    <div class="alert alert-success col-md-8 offset-md-2" role="alert">
+        @ViewBag.Message
+    </div>
+}
+
+<div class="col-md-8 offset-md-2">
+    <h4>Out-Of-Band (TODO)</h4>
+    @using (Html.BeginForm("OutOfBand", "SqlInjection", FormMethod.Post))
+    {
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="add product" aria-label="add" aria-describedby="add-button" name="productName" id="outofband" />
+            <button class="btn btn-outline-secondary" type="submit" id="add-button">Add Product</button>
+        </div>
+    }
+</div>
+

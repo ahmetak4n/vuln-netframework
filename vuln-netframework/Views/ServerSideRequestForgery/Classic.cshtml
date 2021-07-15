@@ -1,0 +1,62 @@
+﻿@model vuln_netframework.Models.ServerSideRequestForgery.Request
+@{
+    ViewBag.Title = "Classic";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-12 p-5 mb-4 bg-light rounded-3">
+    <div class="offset-md-2 py-3">
+        <p class="col-md-8 fs-5">
+            In a typical SSRF attack, the attacker might cause the server to make a connection to internal-only services within the organization's infrastructure.
+            In other cases, they may be able to force the server to connect to arbitrary external systems, potentially leaking sensitive data such as authorization credentials.
+        </p>
+    </div>
+</div>
+
+@if (!String.IsNullOrEmpty(ViewBag.Message))
+{
+    <div class="alert alert-success col-md-8 offset-md-2" role="alert">
+        @ViewBag.Message
+    </div>
+}
+
+<div class="col-md-8 offset-md-2 ">
+    <h4>Classic With HttpClient</h4>
+    @using (Html.BeginForm("ClassicWithHttpClient", "ServerSideRequestForgery", FormMethod.Post))
+    {
+        <div class="input-group mb-3">
+            <input value="http://localhost:52161/Dummy/CityList" type="hidden" class="form-control" aria-label="getcitylist" aria-describedby="getcitylist-button" name="path" id="classicwithhttpclient" />
+            <button class="btn btn-outline-secondary col-md-12" type="submit" id="getcitylist-button">Get City List</button>
+        </div>
+    }
+</div>
+
+<br />
+<hr />
+<br />
+
+<div class="col-md-8 offset-md-2 ">
+    <h4>Classic With WebClient</h4>
+    @using (Html.BeginForm("ClassicWithWebClient", "ServerSideRequestForgery", FormMethod.Post))
+    {
+        <div class="input-group mb-3">
+            <input value="http://localhost:52161/Dummy/CityList" type="hidden" class="form-control" aria-label="getcitylist" aria-describedby="getcitylist-button2" name="path" id="classicwithwebclient" />
+            <button class="btn btn-outline-secondary col-md-12" type="submit" id="getcitylist-button2">Get City List</button>
+        </div>
+    }
+</div>
+
+<br />
+<hr />
+<br />
+
+<div class="col-md-8 offset-md-2 ">
+    <h4>Classic With RestClient</h4>
+    @using (Html.BeginForm("ClassicWithRestClient", "ServerSideRequestForgery", FormMethod.Post))
+    {
+        <div class="input-group mb-3">
+            <input value="http://localhost:52161/Dummy/CityList" type="hidden" class="form-control" aria-label="getcitylist" aria-describedby="getcitylist-button3" name="path" id="classicwithrestclient" />
+            <button class="btn btn-outline-secondary col-md-12" type="submit" id="getcitylist-button3">Get City List</button>
+        </div>
+    }
+</div>

@@ -190,5 +190,15 @@ namespace vuln_netframework.Controllers
         }
 
         #endregion
+
+        #region Ouf-Of-Band
+
+        [HttpGet]
+        public ActionResult OutOfBand()
+        {
+            return View();
+        }
+
+        #endregion
     }
 }

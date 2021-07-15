@@ -2,10 +2,24 @@
 {
     public interface IServerSideRequestForgeryService
     {
-        string SyncHttpClient(string path);
+        #region Classic
 
-        string SyncWebClient(string path);
+        string ClassicWithHttpClient(string path);
 
-        string SyncRestClient(string path);
+        string ClassicWithWebClient(string path);
+
+        string ClassicWithRestClient(string path);
+
+        #endregion
+
+        #region Blind
+
+        string BlindWithHttpClient(string path);
+
+        string BlindWithWebClient(string path);
+
+        string BlindWithRestClient(string path);
+
+        #endregion
     }
 }

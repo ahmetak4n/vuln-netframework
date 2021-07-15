@@ -404,8 +404,6 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
-    <Reference Include="System.Net.Http">
-    </Reference>
     <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
@@ -484,6 +482,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\DummyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InsecureDeserializationController.cs" />
     <Compile Include="Controllers\PublicController.cs" />
@@ -498,6 +497,7 @@
     <Compile Include="Models\Login\LoginModel.cs" />
     <Compile Include="Models\NewtonsoftInsecureDeserializationModel.cs" />
     <Compile Include="Models\OsCommandInjection\Ping.cs" />
+    <Compile Include="Models\ServerSideRequestForgery\Request.cs" />
     <Compile Include="Models\SqlInjection\Insert.cs" />
     <Compile Include="Models\SqlInjection\Search.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -534,6 +534,10 @@
     <Content Include="Views\OsCommandInjection\Index.cshtml" />
     <Content Include="Views\OsCommandInjection\Classic.cshtml" />
     <Content Include="Views\OsCommandInjection\Blind.cshtml" />
+    <Content Include="Views\ServerSideRequestForgery\Index.cshtml" />
+    <Content Include="Views\SqlInjection\OutOfBand.cshtml" />
+    <Content Include="Views\ServerSideRequestForgery\Classic.cshtml" />
+    <Content Include="Views\ServerSideRequestForgery\Blind.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DI\DI.csproj">

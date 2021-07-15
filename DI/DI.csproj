@@ -66,6 +66,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\DummyService.cs" />
+    <Compile Include="Services\IDummyService.cs" />
     <Compile Include="Services\IInsecureDeserializationService.cs" />
     <Compile Include="Services\InsecureDeserializationService.cs" />
     <Compile Include="Services\IOsCommandInjectionService.cs" />

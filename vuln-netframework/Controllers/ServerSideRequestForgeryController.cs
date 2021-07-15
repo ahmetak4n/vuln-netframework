@@ -1,10 +1,10 @@
 ﻿using DI.Services;
-using System.Web.Http;
+using System.Web.Mvc;
+using vuln_netframework.Models.ServerSideRequestForgery;
 
 namespace vuln_netframework.Controllers
 {
-    [RoutePrefix("api/serversiderequestforgery")]
-    public class ServerSideRequestForgeryController : ApiController
+    public class ServerSideRequestForgeryController : Controller
     {
         private readonly IServerSideRequestForgeryService _serverSideRequestForgeryService;
 
@@ -13,28 +13,108 @@ namespace vuln_netframework.Controllers
             _serverSideRequestForgeryService = serverSideRequestForgery;
         }
 
-        [Route("index")]
-        public string GetIndex()
+        [HttpGet]
+        public ActionResult Index()
         {
-            return "Welcome Server Side Request Forgery Page";
+            return View();
         }
 
-        [Route("synchttpclient")]
-        public string PostSyncHttpClient([FromBody] string path)
+        #region Classic
+
+        [HttpGet]
+        public ActionResult Classic()
         {
-            return _serverSideRequestForgeryService.SyncHttpClient(path);
+            return View();
         }
 
-        [Route("syncwebclient")]
-        public string PostSyncWebClient([FromBody] string path)
+        [HttpGet]
+        public ActionResult ClassicWithHttpClient()
         {
-            return _serverSideRequestForgeryService.SyncWebClient(path);
+            return View("Classic");
         }
 
-        [Route("syncrestclient")]
-        public string PostSyncRestClient([FromBody] string path)
+        [HttpGet]
+        public ActionResult ClassicWithWebClient()
         {
-            return _serverSideRequestForgeryService.SyncRestClient(path);
+            return View("Classic");
         }
+
+        [HttpGet]
+        public ActionResult ClassicWithRestClient()
+        {
+            return View("Classic");
+        }
+
+        [HttpPost]
+        public ActionResult ClassicWithHttpClient(Request request)
+        {
+            ViewBag.Message = _serverSideRequestForgeryService.ClassicWithHttpClient(request.Path);
+            return View("Classic");
+        }
+
+        [HttpPost]
+        public ActionResult ClassicWithWebClient(Request request)
+        {
+            ViewBag.Message = _serverSideRequestForgeryService.ClassicWithWebClient(request.Path);
+            return View("Classic");
+        }
+
+        [HttpPost]
+        public ActionResult ClassicWithRestClient(Request request)
+        {
+            ViewBag.Message = _serverSideRequestForgeryService.ClassicWithRestClient(request.Path);
+            return View("Classic");
+        }
+
+        #endregion
+
+        #region Blind
+
+        [HttpGet]
+        public ActionResult Blind()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult BlindWithHttpClient()
+        {
+            return View("Blind");
+        }
+
+        [HttpGet]
+        public ActionResult BlindWithWebClient()
+        {
+            return View("Blind");
+        }
+
+        [HttpGet]
+        public ActionResult BlindWithRestClient()
+        {
+            return View("Blind");
+        }
+
+        [HttpPost]
+        public ActionResult BlindWithHttpClient(Request request)
+        {
+            ViewBag.Message = _serverSideRequestForgeryService.BlindWithHttpClient(request.Path);
+            return View("Blind");
+        }
+
+        [HttpPost]
+        public ActionResult BlindWithWebClient(Request request)
+        {
+            ViewBag.Message = _serverSideRequestForgeryService.BlindWithWebClient(request.Path);
+            return View("Blind");
+        }
+
+        [HttpPost]
+        public ActionResult BlindWithRestClient(Request request)
+        {
+            ViewBag.Message = _serverSideRequestForgeryService.BlindWithRestClient(request.Path);
+            return View("Blind");
+        }
+
+        #endregion
     }
 }

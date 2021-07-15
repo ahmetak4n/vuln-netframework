@@ -8,7 +8,9 @@ namespace DI.Services
 {
     public class ServerSideRequestForgeryService : IServerSideRequestForgeryService
     {
-        public string SyncHttpClient(string path)
+        #region Classic
+
+        public string ClassicWithHttpClient(string path)
         {
             string result = "";
 
@@ -27,7 +29,7 @@ namespace DI.Services
             return result;
         }
 
-        public string SyncWebClient(string path)
+        public string ClassicWithWebClient(string path)
         {
             string result = "";
 
@@ -47,7 +49,7 @@ namespace DI.Services
             return result;
         }
 
-        public string SyncRestClient(string path)
+        public string ClassicWithRestClient(string path)
         {
             string result = "";
 
@@ -68,5 +70,70 @@ namespace DI.Services
 
             return result;
         }
+
+        #endregion
+
+        #region Blind
+
+        public string BlindWithHttpClient(string path)
+        {
+            string result = "Message was sended";
+
+            HttpClient client = new HttpClient();
+
+            try
+            {
+                HttpResponseMessage response = client.GetAsync(path).Result;
+                var content = response.Content.ReadAsStringAsync().Result;
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine(e);
+                result = "An error occured";
+            }
+
+            return result;
+        }
+
+        public string BlindWithWebClient(string path)
+        {
+            string result = "Message was sended";
+
+            try
+            {
+                WebClient client = new WebClient();
+
+                Stream data = client.OpenRead(path);
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine(e);
+                result = "An error occured";
+            }
+
+            return result;
+        }
+
+        public string BlindWithRestClient(string path)
+        {
+            string result = "Message was sended";
+
+            try
+            {
+                RestClient client = new RestClient(path);
+
+                var request = new RestRequest("/");
+                var response = client.Get(request);
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine(e);
+                result = "An error occured";
+            }
+
+            return result;
+        }
+
+        #endregion
     }
 }
