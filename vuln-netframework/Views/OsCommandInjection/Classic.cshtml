@@ -1,5 +1,4 @@
-﻿@model vuln_netframework.Models.OsCommandInjection.Ping
-@{
+﻿@{
     ViewBag.Title = "Classic";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -31,3 +30,47 @@
     }
 </div>
 
+<br />
+<hr class="col-md-8 offset-md-2" />
+<br />
+
+<div class="col-md-8 offset-md-2 ">
+    <h4>Classic 2</h4>
+    @using (Html.BeginForm("Classic2", "OsCommandInjection", FormMethod.Post))
+    {
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="os command" aria-label="command" aria-describedby="command-button" name="command" id="classic2" />
+            <button class="btn btn-outline-secondary" type="submit" id="command-button">Run Command</button>
+        </div>
+    }
+</div>
+
+<br />
+<hr class="col-md-8 offset-md-2" />
+<br />
+
+<div class="col-md-8 offset-md-2 ">
+    <h4>Classic 3</h4>
+    @using (Html.BeginForm("Classic3", "OsCommandInjection", FormMethod.Post))
+    {
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="os command" aria-label="command" aria-describedby="command-button" name="command" id="classic3" />
+            <button class="btn btn-outline-secondary" type="submit" id="command-button">Run Command</button>
+        </div>
+    }
+</div>
+
+<br />
+<hr class="col-md-8 offset-md-2" />
+<br />
+
+<div class="col-md-8 offset-md-2 ">
+    <h4>Classic with Python</h4>
+    @using (Html.BeginForm("ClassicWithPython", "OsCommandInjection", FormMethod.Post))
+    {
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="os command" aria-label="command" aria-describedby="command-button" name="command" id="classicWithPython" />
+            <button class="btn btn-outline-secondary" type="submit" id="command-button">Run Command</button>
+        </div>
+    }
+</div>

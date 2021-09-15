@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-12 p-5 mb-4 bg-light rounded-3">
+    <div class="offset-md-2 py-3">
+        <p class="col-md-8 fs-5">
+            The Regular expression Denial of Service (ReDoS) is a Denial of Service attack, that exploits the fact that most Regular Expression implementations may reach
+            extreme situations that cause them to work very slowly (exponentially related to input size).
+            An attacker can then cause a program using a Regular Expression to enter these extreme situations and then hang for a very long time
+        </p>
+        <br />
+        <p class="col-md-8 fs-6">More resource about Regular Expression DOS vulnerabilities:</p>
+        <ul class="col-md-8 list-group">
+            <li class="list-group-item list-group-item-danger"><a class="link-dark" href="https://cwe.mitre.org/data/definitions/1333.html">CWE-1333</a> </li>
+            <li class="list-group-item list-group-item-danger">
+                <a class="link-dark" href="https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS">
+                    OWASP - ReDOS
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+@if (!String.IsNullOrEmpty(ViewBag.Message))
+{
+    <div class="alert alert-success col-md-8 offset-md-2" role="alert">
+        @ViewBag.Message
+    </div>
+}
+
+<div class="col-md-8 offset-md-2 ">
+    <h4>Check Pattern</h4>
+    @using (Html.BeginForm("CheckPattern", "RegularExpression", FormMethod.Post))
+    {
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" aria-label="checkpattern" placeholder="check pattern" aria-describedby="checkpattern-button" name="query" id="checkpattern" />
+            <button class="btn btn-outline-secondary" type="submit" id="checkpattern-button">Check Pattern</button>
+        </div>
+    }
+</div>
+
+<br />
+<hr class="col-md-8 offset-md-2" />
+<br />
+
+<div class="col-md-8 offset-md-2 ">
+    <h4>Check Pattern 2</h4>
+    @using (Html.BeginForm("CheckPattern2", "RegularExpression", FormMethod.Post))
+    {
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" aria-label="checkpattern" placeholder="check pattern" aria-describedby="checkpattern-button" name="query" id="checkpattern2" />
+            <button class="btn btn-outline-secondary" type="submit" id="checkpattern-button">Check Pattern</button>
+        </div>
+    }
+</div>

@@ -1,6 +1,5 @@
 ﻿using DI.Services;
 using System.Web.Mvc;
-using vuln_netframework.Models.OsCommandInjection;
 
 namespace vuln_netframework.Controllers
 {
@@ -27,10 +26,31 @@ namespace vuln_netframework.Controllers
         }
 
         [HttpPost]
-        public ActionResult Classic(Ping ping)
+        public ActionResult Classic(string ip)
         {
-            ViewBag.Message = _osCommandInjection.Classic(ping.Ip);
+            ViewBag.Message = _osCommandInjection.Classic(ip);
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Classic2(string command)
+        {
+            ViewBag.Message = _osCommandInjection.Classic2(command);
+            return View("Classic");
+        }
+
+        [HttpPost]
+        public ActionResult Classic3(string command)
+        {
+            ViewBag.Message = _osCommandInjection.Classic3(command);
+            return View("Classic");
+        }
+
+        [HttpPost]
+        public ActionResult ClassicWithPython(string command)
+        {
+            ViewBag.Message = _osCommandInjection.ClassicWithPython(command);
+            return View("Classic");
         }
 
         #endregion
@@ -44,9 +64,9 @@ namespace vuln_netframework.Controllers
         }
 
         [HttpPost]
-        public ActionResult Blind(Ping ping)
+        public ActionResult Blind(string ip)
         {
-            ViewBag.Message = _osCommandInjection.Blind(ping.Ip);
+            ViewBag.Message = _osCommandInjection.Blind(ip);
             return View();
         }
 

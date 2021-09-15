@@ -2,8 +2,8 @@
 {
     public interface IRegularExpressionService
     {
-        string SearchOne(string search);
+        string CheckPattern(string query);
 
-        string SearchTwo(string search);
+        string CheckPattern2(string query);
     }
 }

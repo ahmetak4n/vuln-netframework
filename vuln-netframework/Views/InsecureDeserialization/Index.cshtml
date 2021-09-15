@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-12 p-5 mb-4 bg-light rounded-3">
+    <div class="offset-md-2 py-3">
+        <p class="col-md-8 fs-5">
+            Insecure deserialization is when user-controllable data is deserialized by a website. This potentially enables an attacker to manipulate serialized objects in 
+            order to pass harmful data into the application code.
+        </p>
+        <br />
+        <p class="col-md-8 fs-6">More resource about SQL Injection vulnerabilities:</p>
+        <ul class="col-md-8 list-group">
+            <li class="list-group-item list-group-item-danger"><a class="link-dark" href="https://cwe.mitre.org/data/definitions/502.html">CWE-502</a> </li>
+            <li class="list-group-item list-group-item-danger"><a class="link-dark" href="https://portswigger.net/web-security/deserialization">Web Security Academy - Insecure Deserialization</a> </li>
+        </ul>
+    </div>
+</div>
+
+<div class="p-4 card-group">
+    <div class="card">
+        <div class="card-header">
+            Classic (In-Band)
+        </div>
+        <div class="card-body">
+            <p class="card-text">
+                Classic SQL Injection occurs when an attacker is able to use the same communication channel to both launch the attack and gather results.
+            </p>
+            <p class="card-text">
+                The two most common types of Classic SQL Injection are Error-Based SQLi and Union-Based SQLi
+            </p>
+            @Html.ActionLink("Union Based", "UnionBased", "SqlInjection", new { area = "" }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Error Based", "ErrorBased", "SqlInjection", new { area = "" }, new { @class = "btn btn-primary" })
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            Blind (Inferential)
+        </div>
+        <div class="card-body">
+            <p class="card-text">
+                A Blind SQLi attack, no data is actually transferred via the web application and the attacker would not be able to see the result of an attack
+                in-band. Instead, an attacker is able to reconstruct the database structure by sending payloads, observing the web application’s response and
+                the resulting behavior of the database server.
+            </p>
+            <p class="card-text">
+                The two types of inferential SQL Injection are Blind-boolean-based SQLi and Blind-time-based SQLi. Also attackers can extract data from application
+                with Out-Of-Band Technique.
+            </p>
+            @Html.ActionLink("Boolean Based", "BooleanBased", "SqlInjection", new { area = "" }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Time Based", "TimeBased", "SqlInjection", new { area = "" }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Out-Of-Band", "OutOfBand", "SqlInjection", new { area = "" }, new { @class = "btn btn-primary" })
+        </div>
+    </div>
+</div>
+

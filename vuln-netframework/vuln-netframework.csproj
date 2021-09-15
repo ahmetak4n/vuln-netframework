@@ -496,7 +496,7 @@
     <Compile Include="Models\DataContractInsecureDeserializationModel.cs" />
     <Compile Include="Models\Login\LoginModel.cs" />
     <Compile Include="Models\NewtonsoftInsecureDeserializationModel.cs" />
-    <Compile Include="Models\OsCommandInjection\Ping.cs" />
+    <Compile Include="Models\RegularExpression\Pattern.cs" />
     <Compile Include="Models\ServerSideRequestForgery\Request.cs" />
     <Compile Include="Models\SqlInjection\Insert.cs" />
     <Compile Include="Models\SqlInjection\Search.cs" />
@@ -538,6 +538,8 @@
     <Content Include="Views\SqlInjection\OutOfBand.cshtml" />
     <Content Include="Views\ServerSideRequestForgery\Classic.cshtml" />
     <Content Include="Views\ServerSideRequestForgery\Blind.cshtml" />
+    <Content Include="Views\RegularExpression\Index.cshtml" />
+    <Content Include="Views\InsecureDeserialization\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DI\DI.csproj">

@@ -1,11 +1,10 @@
 ﻿using DI.Services;
 using vuln_netframework.Models;
-using System.Web.Http;
+using System.Web.Mvc;
 
 namespace vuln_netframework.Controllers
 {
-    [RoutePrefix("api/insecuredeserialization")]
-    public class InsecureDeserializationController : ApiController
+    public class InsecureDeserializationController : Controller
     {
         private readonly IInsecureDeserializationService _insecureDeserialization;
 
@@ -14,10 +13,9 @@ namespace vuln_netframework.Controllers
             _insecureDeserialization = insecureDeserialization;
         }
 
-        [Route("index")]
-        public string GetIndex()
+        public ActionResult Index()
         {
-            return "Welcome Insecure Deserialization Page";
+            return View();
         }
 
         /*
@@ -26,6 +24,8 @@ namespace vuln_netframework.Controllers
          *  2) Prefix of method name like PostNewtonsoftID
          *  3) in WebApiConfig.cs
          */
+
+        /*
         [Route("newtonsoft")]
         public void PostNewtonsoftDeserialization([FromBody] string json)
         {
@@ -85,5 +85,7 @@ namespace vuln_netframework.Controllers
         {
             _insecureDeserialization.FsPicklerDeserialization(json);
         }
+
+        */
     }
 }

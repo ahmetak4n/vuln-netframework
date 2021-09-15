@@ -1,10 +1,10 @@
 ﻿using DI.Services;
-using System.Web.Http;
+using System.Web.Mvc;
+using vuln_netframework.Models.RegularExpression;
 
 namespace vuln_netframework.Controllers
 {
-    [RoutePrefix("api/regularexpression")]
-    public class RegularExpressionController : ApiController
+    public class RegularExpressionController : Controller
     {
         private readonly IRegularExpressionService _regularExpressionService;
 
@@ -13,22 +13,36 @@ namespace vuln_netframework.Controllers
             _regularExpressionService = regularExpressionService;
         }
 
-        [Route("index")]
-        public string GetIndex()
+        [HttpGet]
+        public ActionResult Index()
         {
-            return "Welcome Regular Expression Page";
+            return View();
         }
 
-        [Route("searchone")]
-        public string PostSearchOne([FromBody] string search)
+        [HttpGet]
+        public ActionResult CheckPattern()
         {
-            return _regularExpressionService.SearchOne(search);
+            return View("Index");
         }
 
-        [Route("searchtwo")]
-        public string PostSearchTwo([FromBody] string search)
+        [HttpGet]
+        public ActionResult CheckPattern2()
         {
-            return _regularExpressionService.SearchTwo(search);
+            return View("Index");
+        }
+
+        [HttpPost]
+        public ActionResult CheckPattern(Pattern pattern)
+        {
+            ViewBag.Message = _regularExpressionService.CheckPattern(pattern.Query);
+            return View("Index");
+        }
+
+        [HttpPost]
+        public ActionResult CheckPattern2(Pattern pattern)
+        {
+            ViewBag.Message = _regularExpressionService.CheckPattern2(pattern.Query);
+            return View("Index");
         }
     }
 }
