@@ -24,8 +24,25 @@
     @using (Html.BeginForm("Classic", "OsCommandInjection", FormMethod.Post))
     {
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="IP address" aria-label="ping" aria-describedby="ping-button" name="ip" id="classic" />
-            <button class="btn btn-outline-secondary" type="submit" id="ping-button">Ping</button>
+            <input type="text" class="form-control" placeholder="os command" aria-label="oscommand" aria-describedby="oscommand-text" name="command" id="classic" />
+            <input type="text" class="form-control" placeholder="arguments" aria-label="arguments" aria-describedby="arguments-text" name="arguments" id="classic-args" />
+            <button class="btn btn-outline-secondary" type="submit" id="oscommand-button">Run Command</button>
+        </div>
+    }
+</div>
+
+<br />
+<hr class="col-md-8 offset-md-2" />
+<br />
+
+<div class="col-md-8 offset-md-2 ">
+    <h4>Classic With Process Start Info</h4>
+    @using (Html.BeginForm("ClassicWithProcessStartInfo", "OsCommandInjection", FormMethod.Post))
+    {
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="os command" aria-label="oscommand" aria-describedby="oscommand-text" name="command" id="classicWithProcessStartInfo" />
+            <input type="text" class="form-control" placeholder="arguments" aria-label="arguments" aria-describedby="arguments-text" name="arguments" id="classicWithProcessStartInfo-args" />
+            <button class="btn btn-outline-secondary" type="submit" id="oscommand-button">Run Command</button>
         </div>
     }
 </div>
@@ -39,8 +56,8 @@
     @using (Html.BeginForm("Classic2", "OsCommandInjection", FormMethod.Post))
     {
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="os command" aria-label="command" aria-describedby="command-button" name="command" id="classic2" />
-            <button class="btn btn-outline-secondary" type="submit" id="command-button">Run Command</button>
+            <input type="text" class="form-control" placeholder="ping" aria-label="ping" aria-describedby="ping-text" name="ip" id="classic2" />
+            <button class="btn btn-outline-secondary" type="submit" id="oscommand-button">Ping</button>
         </div>
     }
 </div>
@@ -50,12 +67,12 @@
 <br />
 
 <div class="col-md-8 offset-md-2 ">
-    <h4>Classic 3</h4>
-    @using (Html.BeginForm("Classic3", "OsCommandInjection", FormMethod.Post))
+    <h4>Classic 2 With Process Start Info</h4>
+    @using (Html.BeginForm("Classic2WithProcessStartInfo", "OsCommandInjection", FormMethod.Post))
     {
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="os command" aria-label="command" aria-describedby="command-button" name="command" id="classic3" />
-            <button class="btn btn-outline-secondary" type="submit" id="command-button">Run Command</button>
+            <input type="text" class="form-control" placeholder="ping" aria-label="ping" aria-describedby="ping-text" name="ip" id="classic2WithProcessStartInfo" />
+            <button class="btn btn-outline-secondary" type="submit" id="ping-button">Ping</button>
         </div>
     }
 </div>
@@ -69,8 +86,8 @@
     @using (Html.BeginForm("ClassicWithPython", "OsCommandInjection", FormMethod.Post))
     {
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="os command" aria-label="command" aria-describedby="command-button" name="command" id="classicWithPython" />
-            <button class="btn btn-outline-secondary" type="submit" id="command-button">Run Command</button>
+            <input type="text" class="form-control" placeholder="python command" aria-label="pythoncommand" aria-describedby="pythoncommand-button" name="arguments" id="classicWithPython" />
+            <button class="btn btn-outline-secondary" type="submit" id="pythoncommand-button">Run Python Command</button>
         </div>
     }
 </div>

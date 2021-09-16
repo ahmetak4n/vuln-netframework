@@ -25,9 +25,116 @@
     @using (Html.BeginForm("Blind", "OsCommandInjection", FormMethod.Post))
     {
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="IP address" aria-label="ping" aria-describedby="ping-button" name="ip" id="blind" />
-            <button class="btn btn-outline-secondary" type="submit" id="ping-button">Ping</button>
+            <input type="text" class="form-control" placeholder="os command" aria-label="oscommand" aria-describedby="oscommand-button" name="command" id="blind" />
+            <button class="btn btn-outline-secondary" type="submit" id="oscommand-button">Run Command</button>
         </div>
     }
 </div>
 
+<br />
+<hr class="col-md-8 offset-md-2" />
+<br />
+
+<div class="col-md-8 offset-md-2 ">
+    <h4>Blind With Arguments</h4>
+    @using (Html.BeginForm("BlindWithArguments", "OsCommandInjection", FormMethod.Post))
+    {
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="os command" aria-label="oscommand" aria-describedby="oscommand-text" name="command" id="blindWithArguments" />
+            <input type="text" class="form-control" placeholder="arguments" aria-label="arguments" aria-describedby="arguments-text" name="arguments" id="blindWithArguments-args" />
+            <button class="btn btn-outline-secondary" type="submit" id="oscommand-button">Run Command</button>
+        </div>
+    }
+</div>
+
+<br />
+<hr class="col-md-8 offset-md-2" />
+<br />
+
+<div class="col-md-8 offset-md-2 ">
+    <h4>Blind 2</h4>
+    @using (Html.BeginForm("Blind2", "OsCommandInjection", FormMethod.Post))
+    {
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="os command" aria-label="oscommand" aria-describedby="oscommand-text" name="command" id="blind2" />
+            <button class="btn btn-outline-secondary" type="submit" id="oscommand-button">Run Command</button>
+        </div>
+    }
+</div>
+
+<br />
+<hr class="col-md-8 offset-md-2" />
+<br />
+
+<div class="col-md-8 offset-md-2 ">
+    <h4>Blind 2 With Process Start Info</h4>
+    @using (Html.BeginForm("Blind2WithProcessStartInfo", "OsCommandInjection", FormMethod.Post))
+    {
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="os command" aria-label="oscommand" aria-describedby="oscommand-text" name="command" id="blind2WithProcessStartInfo" />
+            <button class="btn btn-outline-secondary" type="submit" id="oscommand-button">Run Command</button>
+        </div>
+    }
+</div>
+
+<br />
+<hr class="col-md-8 offset-md-2" />
+<br />
+
+<div class="col-md-8 offset-md-2 ">
+    <h4>Blind 3</h4>
+    @using (Html.BeginForm("Blind3", "OsCommandInjection", FormMethod.Post))
+    {
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="os command" aria-label="oscommand" aria-describedby="oscommand-text" name="command" id="blind3" />
+            <input type="text" class="form-control" placeholder="arguments" aria-label="arguments" aria-describedby="arguments-text" name="arguments" id="blind3-args" />
+            <button class="btn btn-outline-secondary" type="submit" id="oscommand-button">Run Command</button>
+        </div>
+    }
+</div>
+
+<br />
+<hr class="col-md-8 offset-md-2" />
+<br />
+
+<div class="col-md-8 offset-md-2 ">
+    <h4>Blind 3 With Process Start Info</h4>
+    @using (Html.BeginForm("Blind3WithProcessStartInfo", "OsCommandInjection", FormMethod.Post))
+    {
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="os command" aria-label="oscommand" aria-describedby="oscommand-text" name="command" id="blind3WithProcessStartInfo" />
+            <input type="text" class="form-control" placeholder="arguments" aria-label="arguments" aria-describedby="arguments-text" name="arguments" id="blind3WithProcessStartInfo-args" />
+            <button class="btn btn-outline-secondary" type="submit" id="oscommand-button">Run Command</button>
+        </div>
+    }
+</div>
+
+<br />
+<hr class="col-md-8 offset-md-2" />
+<br />
+
+<div class="col-md-8 offset-md-2 ">
+    <h4>Blind 4</h4>
+    @using (Html.BeginForm("Blind4", "OsCommandInjection", FormMethod.Post))
+    {
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="check host" aria-label="checkhost" aria-describedby="checkhost-text" name="host" id="blind4" />
+            <button class="btn btn-outline-secondary" type="submit" id="checkhost-button">Check Host</button>
+        </div>
+    }
+</div>
+
+<br />
+<hr class="col-md-8 offset-md-2" />
+<br />
+
+<div class="col-md-8 offset-md-2 ">
+    <h4>Blind 4 With Process Start Info</h4>
+    @using (Html.BeginForm("Blind4WithProcessStartInfo", "OsCommandInjection", FormMethod.Post))
+    {
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="check host" aria-label="checkhost" aria-describedby="checkhost-text" name="host" id="blind4WithProcessStartInfo" />
+            <button class="btn btn-outline-secondary" type="submit" id="checkhost-button">Check Host</button>
+        </div>
+    }
+</div>
