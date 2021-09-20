@@ -30,6 +30,7 @@ jobs:
   semgrep:
       name: semgrep-scan
       runs-on: ubuntu-latest
+      needs: [build]
       steps:
         # Fetch project source
         - uses: actions/checkout@v2
@@ -37,4 +38,4 @@ jobs:
         - uses: returntocorp/semgrep-action@v1
           with:
             config: >-
-              csharp/lang/security
+              p/csharp/lang/security
