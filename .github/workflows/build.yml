@@ -34,7 +34,8 @@ jobs:
       steps:
         # Fetch project source
         - uses: actions/checkout@v2
-
+        - uses: returntocorp/semgrep-rules-test-action@v0.2
+        - run: ls 
         - uses: returntocorp/semgrep-action@v1
           with:
             config: >-
