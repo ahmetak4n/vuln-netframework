@@ -27,3 +27,14 @@ jobs:
       - name: Build Solution
         run: |
           msbuild.exe vuln-netframework.sln
+  semgrep:
+      name: semgrep-scan
+      runs-on: ubuntu-latest
+      steps:
+        # Fetch project source
+        - uses: actions/checkout@v2
+
+        - uses: returntocorp/semgrep-action@v1
+          with:
+            config: >-
+              csharp/lang/security
