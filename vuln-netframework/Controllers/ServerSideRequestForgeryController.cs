@@ -1,6 +1,5 @@
 ﻿using DI.Services;
 using System.Web.Mvc;
-using vuln_netframework.Models.ServerSideRequestForgery;
 
 namespace vuln_netframework.Controllers
 {
@@ -46,23 +45,30 @@ namespace vuln_netframework.Controllers
         }
 
         [HttpPost]
-        public ActionResult ClassicWithHttpClient(Request request)
+        public ActionResult ClassicWithHttpClient(string path)
         {
-            ViewBag.Message = _serverSideRequestForgeryService.ClassicWithHttpClient(request.Path);
+            ViewBag.Message = _serverSideRequestForgeryService.ClassicWithHttpClient(path);
             return View("Classic");
         }
 
         [HttpPost]
-        public ActionResult ClassicWithWebClient(Request request)
+        public ActionResult ClassicWithWebClient(string path)
         {
-            ViewBag.Message = _serverSideRequestForgeryService.ClassicWithWebClient(request.Path);
+            ViewBag.Message = _serverSideRequestForgeryService.ClassicWithWebClient(path);
             return View("Classic");
         }
 
         [HttpPost]
-        public ActionResult ClassicWithRestClient(Request request)
+        public ActionResult ClassicWithRestClient(string path)
         {
-            ViewBag.Message = _serverSideRequestForgeryService.ClassicWithRestClient(request.Path);
+            ViewBag.Message = _serverSideRequestForgeryService.ClassicWithRestClient(path);
+            return View("Classic");
+        }
+
+        [HttpPost]
+        public ActionResult ClassicWithWebRequest(string path)
+        {
+            ViewBag.Message = _serverSideRequestForgeryService.ClassicWithWebRequest(path);
             return View("Classic");
         }
 
@@ -95,23 +101,30 @@ namespace vuln_netframework.Controllers
         }
 
         [HttpPost]
-        public ActionResult BlindWithHttpClient(Request request)
+        public ActionResult BlindWithHttpClient(string path)
         {
-            ViewBag.Message = _serverSideRequestForgeryService.BlindWithHttpClient(request.Path);
+            ViewBag.Message = _serverSideRequestForgeryService.BlindWithHttpClient(path);
             return View("Blind");
         }
 
         [HttpPost]
-        public ActionResult BlindWithWebClient(Request request)
+        public ActionResult BlindWithWebClient(string path)
         {
-            ViewBag.Message = _serverSideRequestForgeryService.BlindWithWebClient(request.Path);
+            ViewBag.Message = _serverSideRequestForgeryService.BlindWithWebClient(path);
             return View("Blind");
         }
 
         [HttpPost]
-        public ActionResult BlindWithRestClient(Request request)
+        public ActionResult BlindWithRestClient(string path)
         {
-            ViewBag.Message = _serverSideRequestForgeryService.BlindWithRestClient(request.Path);
+            ViewBag.Message = _serverSideRequestForgeryService.BlindWithRestClient(path);
+            return View("Blind");
+        }
+
+        [HttpPost]
+        public ActionResult BlindWithWebRequest(string path)
+        {
+            ViewBag.Message = _serverSideRequestForgeryService.BlindWithWebRequest(path);
             return View("Blind");
         }
 

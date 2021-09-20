@@ -3,6 +3,7 @@ using System;
 using System.IO;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 
 namespace DI.Services
 {
@@ -62,6 +63,29 @@ namespace DI.Services
 
                 result = response.Content;
                 
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine(e);
+            }
+
+            return result;
+        }
+
+        public string ClassicWithWebRequest(string path)
+        {
+            string result = "";
+            WebRequest webRequest = WebRequest.Create(path);
+
+            try
+            {
+                HttpWebResponse response = (HttpWebResponse)webRequest.GetResponse();
+
+                Stream receiveStream = response.GetResponseStream();
+                Encoding encode = System.Text.Encoding.GetEncoding("utf-8");
+
+                StreamReader readStream = new StreamReader(receiveStream, encode);
+                result = readStream.ReadToEnd();
             }
             catch (Exception e)
             {
@@ -134,6 +158,23 @@ namespace DI.Services
             return result;
         }
 
+        public string BlindWithWebRequest(string path)
+        {
+            string result = "Message was sended";
+            WebRequest webRequest = WebRequest.Create(path);
+
+            try
+            {
+                WebResponse response = webRequest.GetResponse();
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine(e);
+                result = "An error occured";
+            }
+
+            return result;
+        }
         #endregion
     }
 }

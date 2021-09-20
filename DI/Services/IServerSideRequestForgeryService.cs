@@ -10,6 +10,8 @@
 
         string ClassicWithRestClient(string path);
 
+        string ClassicWithWebRequest(string path);
+
         #endregion
 
         #region Blind
@@ -19,6 +21,8 @@
         string BlindWithWebClient(string path);
 
         string BlindWithRestClient(string path);
+
+        string BlindWithWebRequest(string path);
 
         #endregion
     }

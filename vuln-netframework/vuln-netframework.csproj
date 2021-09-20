@@ -497,7 +497,6 @@
     <Compile Include="Models\Login\LoginModel.cs" />
     <Compile Include="Models\NewtonsoftInsecureDeserializationModel.cs" />
     <Compile Include="Models\RegularExpression\Pattern.cs" />
-    <Compile Include="Models\ServerSideRequestForgery\Request.cs" />
     <Compile Include="Models\SqlInjection\Insert.cs" />
     <Compile Include="Models\SqlInjection\Search.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

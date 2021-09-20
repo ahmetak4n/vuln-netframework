@@ -1,5 +1,4 @@
-﻿@model vuln_netframework.Models.ServerSideRequestForgery.Request
-@{
+﻿@{
     ViewBag.Title = "Blind";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -38,7 +37,7 @@
 
 <div class="col-md-8 offset-md-2 ">
     <h4>Blind With WebClient</h4>
-    @using (Html.BeginForm("BlindWebClient", "ServerSideRequestForgery", FormMethod.Post))
+    @using (Html.BeginForm("BlindWithWebClient", "ServerSideRequestForgery", FormMethod.Post))
     {
         <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="enter your message" aria-label="message" aria-describedby="message-button" name="message" id="blindwithwebclient" />
@@ -54,7 +53,7 @@
 
 <div class="col-md-8 offset-md-2 ">
     <h4>Blind With RestClient</h4>
-    @using (Html.BeginForm("BlindRestClient", "ServerSideRequestForgery", FormMethod.Post))
+    @using (Html.BeginForm("BlindWithRestClient", "ServerSideRequestForgery", FormMethod.Post))
     {
         <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="enter your message" aria-label="message" aria-describedby="message-button" name="message" id="blindwithrestclient" />
@@ -64,4 +63,18 @@
     }
 </div>
 
+<br />
+<hr class="col-md-8 offset-md-2" />
+<br />
 
+<div class="col-md-8 offset-md-2 ">
+    <h4>Blind With WebRequest</h4>
+    @using (Html.BeginForm("BlindWithWebRequest", "ServerSideRequestForgery", FormMethod.Post))
+    {
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="enter your message" aria-label="message" aria-describedby="message-button" name="message" id="blindwithrestclient" />
+            <input value="http://localhost:52161" type="hidden" class="form-control" aria-label="message" aria-describedby="message-button3" name="path" id="blindwithrestclient2" />
+            <button class="btn btn-outline-secondary" type="submit" id="message-button3">Send Message</button>
+        </div>
+    }
+</div>

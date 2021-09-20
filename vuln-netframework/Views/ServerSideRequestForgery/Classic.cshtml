@@ -1,5 +1,4 @@
-﻿@model vuln_netframework.Models.ServerSideRequestForgery.Request
-@{
+﻿@{
     ViewBag.Title = "Classic";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -57,6 +56,21 @@
         <div class="input-group mb-3">
             <input value="http://localhost:52161/Dummy/CityList" type="hidden" class="form-control" aria-label="getcitylist" aria-describedby="getcitylist-button3" name="path" id="classicwithrestclient" />
             <button class="btn btn-outline-secondary col-md-12" type="submit" id="getcitylist-button3">Get City List</button>
+        </div>
+    }
+</div>
+
+<br />
+<hr class="col-md-8 offset-md-2" />
+<br />
+
+<div class="col-md-8 offset-md-2 ">
+    <h4>Classic With WebRequest</h4>
+    @using (Html.BeginForm("ClassicWithWebRequest", "ServerSideRequestForgery", FormMethod.Post))
+    {
+        <div class="input-group mb-3">
+            <input value="http://localhost:52161/Dummy/CityList" type="hidden" class="form-control" aria-label="getcitylist" aria-describedby="getcitylist-button34" name="path" id="classicwithwebrequest" />
+            <button class="btn btn-outline-secondary col-md-12" type="submit" id="getcitylist-button4">Get City List</button>
         </div>
     }
 </div>
