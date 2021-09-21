@@ -55,7 +55,6 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         shell: powershell
         run: |
-          ls 
-          dotnet-sonarscanner begin /k:"ahmetak4n_vuln-netframework" /o:"ahmetak4n" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" 
+          dotnet dotnet-sonarscanner begin /k:"ahmetak4n_vuln-netframework" /o:"ahmetak4n" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" 
           MsBuild.exe /t:Rebuild
-          dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+          dotnet dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
