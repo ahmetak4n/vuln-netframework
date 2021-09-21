@@ -42,6 +42,7 @@ namespace DI.Services
                 Stream data = client.OpenRead(path);
                 StreamReader reader = new StreamReader(data);
                 result = reader.ReadToEnd();
+                client.Dispose();
             }
             catch (Exception e)
             {
@@ -128,8 +129,8 @@ namespace DI.Services
             try
             {
                 WebClient client = new WebClient();
-
                 Stream data = client.OpenRead(path);
+                client.Dispose();
             }
             catch (Exception e)
             {
