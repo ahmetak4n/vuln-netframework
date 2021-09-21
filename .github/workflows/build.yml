@@ -46,11 +46,13 @@ jobs:
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v1
         
-      #- name: Navigate to Workspace
-      #  run: cd $GITHUB_WORKSPACE
+      - name: Navigate to Workspace
+        run:
+          ls \
+          cd $GITHUB_WORKSPACE
 
-      #- name: Restore Packages
-      #  run: nuget restore vuln-netframework.sln
+      - name: Restore Packages
+        run: nuget restore vuln-netframework.sln
           
       - name: Build and analyze
         env:
@@ -58,6 +60,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         shell: powershell
         run: |
+          ls \
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"ahmetak4n_vuln-netframework" /o:"ahmetak4n" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" 
           msbuild.exe vuln-netframework.sln /t:Rebuild
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
