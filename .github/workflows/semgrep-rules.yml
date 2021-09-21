@@ -1,4 +1,4 @@
-name: security
+name: semgrep-rules
 on:
   push:
     branches: [ master ]
