@@ -41,22 +41,13 @@ jobs:
           dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
       
       # Prepare Build
-      - uses: actions/checkout@v2
+      # - uses: actions/checkout@v2
       
-      - name: Setup MSBuild
-        uses: microsoft/setup-msbuild@v1
-        
-      - name: LS1
-        run: ls
-        
-      - name: Navigate to Workspace
-        run: cd $GITHUB_WORKSPACE
+      # - name: Setup MSBuild
+      #  uses: microsoft/setup-msbuild@v1
 
-      - name: LS2
-        run: ls
-
-      - name: Restore Packages
-        run: nuget restore vuln-netframework.sln
+      # - name: Restore Packages
+      #  run: nuget restore vuln-netframework.sln
           
       - name: Build and analyze
         env:
