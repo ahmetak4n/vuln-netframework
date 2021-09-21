@@ -50,7 +50,7 @@ jobs:
         uses: NuGet/setup-nuget@v1.0.5
       
       - name: Restore Packages
-        run: nuget restore $GITHUB_WORKSPACE/vuln-netframework.sln
+        run: nuget restore $GITHUB_WORKSPACE\vuln-netframework.sln
           
       - name: Build and analyze
         env:
