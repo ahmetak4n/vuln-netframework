@@ -51,8 +51,7 @@ jobs:
       
       - name: Restore Packages
         run: |
-          cd $GITHUB_WORKSPACE
-          nuget restore vuln-netframework.sln
+          cd $GITHUB_WORKSPACE && nuget restore vuln-netframework.sln
           
       - name: Build and analyze
         env:
