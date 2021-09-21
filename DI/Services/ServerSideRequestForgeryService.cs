@@ -21,6 +21,7 @@ namespace DI.Services
             {
                 HttpResponseMessage response = client.GetAsync(path).Result;
                 result = response.Content.ReadAsStringAsync().Result;
+                client.Dispose();
             }
             catch (Exception e)
             {
@@ -109,6 +110,7 @@ namespace DI.Services
             {
                 HttpResponseMessage response = client.GetAsync(path).Result;
                 var content = response.Content.ReadAsStringAsync().Result;
+                client.Dispose();
             }
             catch (Exception e)
             {
