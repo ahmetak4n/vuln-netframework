@@ -46,10 +46,14 @@ jobs:
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v1
         
+      - name: LS1
+        run: ls
+        
       - name: Navigate to Workspace
-        run:
-          ls 
-          cd $GITHUB_WORKSPACE
+        run: cd $GITHUB_WORKSPACE
+
+      - name: LS2
+        run: ls
 
       - name: Restore Packages
         run: nuget restore vuln-netframework.sln
