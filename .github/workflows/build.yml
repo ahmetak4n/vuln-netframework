@@ -45,13 +45,6 @@ jobs:
       
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v1
-
-      - name: Setup NuGet
-        uses: NuGet/setup-nuget@v1.0.5
-      
-      - name: Restore Packages
-        run: |
-          cd $GITHUB_WORKSPACE && nuget restore vuln-netframework.sln
           
       - name: Build and analyze
         env:
