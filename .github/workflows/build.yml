@@ -41,13 +41,13 @@ jobs:
           dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
       
       # Prepare Build
-      # - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
       
-      # - name: Setup MSBuild
-      #  uses: microsoft/setup-msbuild@v1
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v1
 
-      # - name: Restore Packages
-      #  run: nuget restore vuln-netframework.sln
+      - name: Restore Packages
+        run: nuget restore vuln-netframework.sln
           
       - name: Build and analyze
         env:
@@ -57,5 +57,5 @@ jobs:
         run: |
           ls 
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"ahmetak4n_vuln-netframework" /o:"ahmetak4n" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" 
-          dotnet build vuln-netframework.sln /t:Rebuild
+          MsBuild.exe /t:Rebuild
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
