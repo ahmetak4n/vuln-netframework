@@ -57,5 +57,5 @@ jobs:
         run: |
           ls 
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"ahmetak4n_vuln-netframework" /o:"ahmetak4n" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" 
-          msbuild.exe vuln-netframework.sln /t:Rebuild
+          dotnet build vuln-netframework.sln /t:Rebuild
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
