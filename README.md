@@ -22,3 +22,8 @@ vuln-netframework is a .net-framework 4.7 project that include worst coding prac
 
 # devsecops
 - All vulnerabilities can be detected via [semgrep-rules](https://github.com/returntocorp/semgrep-rules)
+
+# contribution
+- If you want to support, just send PR :)
+
+**Note:** Please pay attantion project structure before creating PR
