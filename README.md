@@ -5,8 +5,9 @@ vuln-netframework is a .net-framework 4.7 project that include worst coding prac
 
 # setup
 ## pre-request
-- net framework 4.7
+- .net framework 4.7
 - database for SQL Injection arttacks (optional)
+	- change [connection string](https://github.com/ahmetak4n/vuln-netframework/blob/master/vuln-netframework/Web.config#L26) via your db values
 	- create a table that name `USER`
 	- `USER` table must include two cloumns these names `NAME` and `ROLE`
 
