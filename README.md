@@ -3,6 +3,13 @@
 # vuln-netframework
 vuln-netframework is a .net-framework 4.7 project that include worst coding practices about common vulnerabilities like Insecure Deserialization, Os Command Injection, SQL Injection, etc.
 
+# setup
+## pre-request
+- net framework 4.7
+- database for SQL Injection arttacks (optional)
+	- create a table that name `USER`
+	- `USER` table must include two cloumns these names `NAME` and `ROLE`
+
 # security-topics
 - Injection
   - OS Command Injection
