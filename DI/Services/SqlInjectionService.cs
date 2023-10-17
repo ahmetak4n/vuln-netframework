@@ -9,7 +9,7 @@ namespace DI.Services
     {
         private string GetConnectionString()
         {
-            var connectionString = ConfigurationManager.ConnectionStrings["SqlExpress"].ConnectionString;
+            var connectionString = ConfigurationManager.ConnectionStrings["MsSql"].ConnectionString;
 
             return connectionString;
         }
@@ -194,7 +194,7 @@ namespace DI.Services
         public string BooleanBased(string param)
         {
             string result = "not found";
-            string query = "SELECT * from [dbo].[USER] WHERE NAME = '" + param + "';";
+            string query = "SELECT * from [dbo].[VULN_NETFRAMEWORK_USER] WHERE NAME = '" + param + "';";
 
             using (SqlConnection connection = new SqlConnection(
                GetConnectionString()))

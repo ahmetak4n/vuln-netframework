@@ -1,0 +1,19 @@
+services:
+  db: 
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Change_Me@123"
+    image: mcr.microsoft.com/mssql/server
+    restart: always
+    ports:
+        - 1433:1433
+    volumes:
+        - ./scripts/:/usr/share/scripts/
+    command: 
+        - /bin/bash
+        - -c 
+        - |
+          /opt/mssql/bin/sqlservr & 
+          sleep 30
+          /opt/mssql-tools/bin/sqlcmd -U sa -P $$MSSQL_SA_PASSWORD -l 30 -e -i /usr/share/scripts/initial.sql
+          sleep infinity
