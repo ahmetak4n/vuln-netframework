@@ -7,7 +7,7 @@ namespace vuln_netframework.Controllers
     public class PublicController : Controller
     {
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Login()
         {
             return View();
         }
