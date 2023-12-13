@@ -12,6 +12,12 @@ namespace vuln_netframework.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult Index()
+        {
+            return View();
+        }
+
         [HttpPost]
         public ActionResult Login(LoginModel loginModel)
         {
